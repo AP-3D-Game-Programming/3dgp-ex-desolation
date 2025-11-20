@@ -15,12 +15,15 @@ Je komt niet te weten wat dat het is voordat het te laat is. Soms hoor je iets a
 
 
 
-Uniek selling point: Het focus is op liminale ruimte en \*tension\*. De ervaring hoort immersive te zijn via een heleboel
+Uniek selling point: 
+- De focus is op liminale ruimte en \*tension\*. De ervaring hoort immersive te zijn via een heleboel enge geluiden en een ongemakkelijk gevoel. In plaats van jumpscares, probeert het spel je de hele tijd bang te maken voor iets dat er misschien niet is. Blijf omdraaien speler, misschien zal je iets zien.
 
-enge geluiden en een ongemakkelijk gevoel. In plaats van jumpscares, probeert het spel je de hele tijd bang te maken voor
+- Narator
 
-iets dat er misschien niet is. Blijf omdraaien speler, misschien zal je iets zien.
+- Schaduwen zijn gevaarlijk
 
+- Puzzle mechanic / escape room
 
-#### ideeen
-- geweer dat niet werkt
+- Wapen (met spin)
+
+  
