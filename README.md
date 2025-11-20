@@ -20,3 +20,7 @@ Uniek selling point: Het focus is op liminale ruimte en \*tension\*. De ervaring
 enge geluiden en een ongemakkelijk gevoel. In plaats van jumpscares, probeert het spel je de hele tijd bang te maken voor
 
 iets dat er misschien niet is. Blijf omdraaien speler, misschien zal je iets zien.
+
+
+#### ideeen
+- geweer dat niet werkt
