@@ -1,14 +1,14 @@
 # Paper prototype
 
-Onze paperprototype zal bestaan uit een puzzel waarbij 2 spelers moeten samenwerken om een correct eindresultaat te bereiken. Aan de hand van wiskundige berekeningen zal de narrator in staat zijn om de puzzelstukken correct te plaatsen om de puzzel te voltooien.
+Onze paperprototype zal bestaan uit een puzzel waarbij 2 spelers (puzzelaar en narrator) moeten samenwerken om een correct eindresultaat te bereiken. Aan de hand van wiskundige berekeningen zal de narrator in staat zijn de puzzelaar te helpen om de puzzelstukken correct te plaatsen en de puzzel te voltooien.
 
 ## Werking van de paper prototype
 
-Voor de paper prototype zijn er 3 elementen die ervoor zorgen dat de puzzel tot een goed eidne gebracht kan worden.
+Voor de paper prototype zijn er 3 elementen die ervoor zorgen dat de puzzel tot een goed einde gebracht kan worden.
 
 ### De puzzelstukjes
 
-Het eerste element zijn de daadwerkelijke puzzelstukjes die gebruikt worden om de puzzel te maken. Elk van deze puzzelstukjes heeft een nummer op de achterzijde en deze worden gebruikt om de puzzelstukjes op de juiste plaats neer te leggen. het is belangrijk dat de speler niet kijkt naar de daadwerkelijke stukjes van de afbeelding, maar dat ze enkel kijken naar en werken met de achterkant van deze stukjes.
+Het eerste element zijn de daadwerkelijke puzzelstukjes die gebruikt worden om de puzzel te maken. Elk van deze puzzelstukjes heeft een nummer op de achterzijde en deze worden gebruikt om de puzzelstukjes op de juiste plaats neer te leggen. Het is belangrijk dat de speler niet kijkt naar de daadwerkelijke stukjes van de afbeelding, maar dat ze enkel kijken naar en werken met de achterkant van deze stukjes (de kant waar de getallen op staan).
 
 In samenwerking met de narrator (de persoon die de daadwerkelijke puzzelaar helpt met het plaatsen van de stukjes op de juiste plaats) zal de puzzelaar wiskundige berekeningen moeten zoeken die ervoor zorgen dat de stukjes een correcte plaats vinden voor het eindresultaat. Over de daadwerkelijke werking van deze berekeningen wordt nog meer informatie gegeven in [Het berekeningenblad](#Het-berekeningenblad)
 
@@ -43,8 +43,8 @@ Het laatste item is de daadwerkelijke afbeelding die de puzzel zal tonen na het 
 
 ## Testdoeleinden van de paper prototype
 
-Er is een kleine twist in het puzzelen waarvan de puzzelaar geen kennis mag hebben tijdens het samenwerken met de narrator. De uiteindelijke puzzel waartoe beide spelers werken zal uiteindelijk niet overeenkomen met de afbeelding, maar volledig scrambled zijn. De reden hiervoor is dat we willen testen hoe een speler zich zal voelen nadat ze samengewerkt hebben met een persoon waarvan ze denken dat deze goede bedoelingen heeft, die uiteindelijk de puzzelaar niet helpt, maar tot een slecht einde brengt.
+Er is een kleine twist in het puzzelen waarvan de puzzelaar geen kennis mag hebben tijdens het samenwerken met de narrator. De uiteindelijke puzzel waartoe beide spelers werken zal niet overeenkomen met de afbeelding, maar volledig scrambled zijn. De reden hiervoor is dat we willen testen hoe een speler zich zal voelen na samenwerking met een persoon waarvan ze denken dat deze goede bedoelingen heeft, die uiteindelijk de puzzelaar niet helpt, maar tot een slecht einde brengt.
 
 In onze game willen we een unreliable narrator die ditzelfde gevoel opwekt bij de speler, maar uiteindelijke de "bad guy" is.
 
-Het puzzel aspect van deze paper prototype toont de mechanic om je doorheen de uiteindelijke game te verplaatsen door verschillende puzzels op te lossen en uiteindelijk een eindresultaat te bereiken. Dit resultaat is dan zoals eerder gezegd gekoppeld aan verraad door de unreliable narrator.
+Het puzzel aspect van deze paper prototype toont de mechanic om je doorheen de uiteindelijke game te verplaatsen aan de hand van verschillende puzzels die opgelost moeten worden om uiteindelijk een eindresultaat/climax te bereiken. Dit resultaat is dan zoals eerder vermeld gekoppeld aan verraad door de unreliable narrator.
