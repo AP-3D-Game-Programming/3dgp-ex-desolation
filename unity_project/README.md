@@ -33,3 +33,8 @@ Uniek selling point:
 Games met zelfde soorten mechanics:
 
 - Firewatch
+
+
+### Ideeen
+
+- puzzle moeilikheids graad
