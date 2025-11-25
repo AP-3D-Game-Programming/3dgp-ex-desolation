@@ -34,6 +34,8 @@ Games met zelfde soorten mechanics:
 
 - SCP: Containment Breach
 
+- The Stanley Parable
+
 
 ### Ideeen
 
