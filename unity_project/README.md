@@ -6,9 +6,7 @@
 
 #### Genre: HORROR
 
-Beschrijving: Ren voor je leven doorheen donkere enge doolhoven terwijl iets of (n)iemand je achtervolgt.
-
-Je komt niet te weten wat dat het is voordat het te laat is. Soms hoor je iets achter je, soms hoor je niks.
+Beschrijving: Je wordt wakker in een verlaten laboratorium. Na een beetje rondzoeken vindt je een walkie-talkie met een vriendelijke stem. Deze stem zegt dat de weg uit geblokkeerd is en dat die je gaat helpen ontsnappen. Tegen je intuitie, duik je dieper in de donkere gangen, onderweg los je puzzels en ontsnapt van monsters. Hopelijk brengt de walkie-talkie-persoon je tot een goede eind.
 
 Uniek selling point:
 
@@ -33,6 +31,8 @@ Uniek selling point:
 Games met zelfde soorten mechanics:
 
 - Firewatch
+
+- SCP: Containment Breach
 
 
 ### Ideeen
