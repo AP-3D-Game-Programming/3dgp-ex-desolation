@@ -33,7 +33,7 @@ Dit zijn beide mogelijke locaties op het rooster voor dit puzzelstuk, maar men z
 
 Er zal waarschijnlijk veel verschuiven van puzzelstukjes plaatsvinden doorheen het puzzelen. Het is de taak van de narrator om het plaatsen en het verplaatsen van de puzzelstukjes correct uit te leggen aan de hand van het berekeningenblad.
 
-<img src="./images/berekeningenblad.jpg" alt="Berekeningenblad" width="400" height="400"/>
+<img src="./images/berekingenblad.jpg" alt="Berekeningenblad" width="400" height="400"/>
 
 ### De afbeelding
 
