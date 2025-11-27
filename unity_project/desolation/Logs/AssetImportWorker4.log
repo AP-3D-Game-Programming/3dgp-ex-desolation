@@ -1,0 +1,324 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.2/respin/6000.2.7f1-2eb0c79396db' branch; Version is '6000.2.7f2 (2b518236b676) revision 2838914'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-thecr" at "2025-11-27T12:20:03.5682816Z"
+OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'en' Physical Memory: 32455 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+Date: 2025-11-27T12:20:03Z
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\6000.2.7f2\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker4
+-projectPath
+C:/Users/thecr/Documents/AP/3DGameProgramming/EXAMEN-Desolation/3dgp-ex-desolation/unity_project/desolation
+-logFile
+Logs/AssetImportWorker4.log
+-srvPort
+54668
+-licensingIpc
+LicenseClient-thecr
+-job-worker-count
+9
+-background-job-worker-count
+8
+-gc-helper-count
+1
+-name
+AssetImport
+Successfully changed project path to: C:/Users/thecr/Documents/AP/3DGameProgramming/EXAMEN-Desolation/3dgp-ex-desolation/unity_project/desolation
+C:/Users/thecr/Documents/AP/3DGameProgramming/EXAMEN-Desolation/3dgp-ex-desolation/unity_project/desolation
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [21784]  Target information:
+
+Player connection [21784]  * "[IP] 192.168.79.1 [Port] 0 [Flags] 2 [Guid] 1606378239 [EditorId] 1606378239 [Version] 1048832 [Id] WindowsEditor(7,ang) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [21784]  * "[IP] 172.31.80.1 [Port] 0 [Flags] 2 [Guid] 1606378239 [EditorId] 1606378239 [Version] 1048832 [Id] WindowsEditor(7,ang) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [21784]  * "[IP] 172.16.137.124 [Port] 0 [Flags] 2 [Guid] 1606378239 [EditorId] 1606378239 [Version] 1048832 [Id] WindowsEditor(7,ang) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [21784] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [21784] Host joined alternative multi-casting on [225.0.0.222:34997]...
+JobSystem: Creating JobQueue using job-worker-count value 9
+Input System module state changed to: Initialized.
+[Physics::Module] Initialized fallback backend.
+[Physics::Module] Id: 0xdecafbad
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 18204, path: "C:/Program Files/Unity Hub/UnityLicensingClient_V1/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.17.3+a4e98f1
+  Session Id:              5759cb5065d2481a87e30d96b83911bf
+  Correlation Id:          216f27d69427b91b7645a262b61b6ef2
+  External correlation Id: 9085079321982715222
+  Machine Id:              cnKIwTiJeXpkoPn66cN1UV9M+0k=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-thecr" (connect: 0.00s, validation: 0.00s, handshake: 0.05s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-thecr-notifications" at "2025-11-27T12:20:03.6256948Z"
+[Licensing::Module] Licensing Background thread has ended after 0.06s
+Library Redirect Path: Library/
+[Physics::Module] Selected backend.
+[Physics::Module] Name: PhysX
+[Physics::Module] Id: 0xf2b8ea05
+[Physics::Module] SDK Version: 4.1.2
+[Physics::Module] Integration Version: 1.0.0
+[Physics::Module] Threading Mode: Multi-Threaded
+Refreshing native plugins compatible for Editor in 3.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 6000.2.7f2 (2b518236b676)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.2.7f2/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/thecr/Documents/AP/3DGameProgramming/EXAMEN-Desolation/3dgp-ex-desolation/unity_project/desolation/Assets
+GfxDevice: creating device client; kGfxThreadingModeNonThreaded
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 5060 Laptop GPU (ID=0x2d19)
+    Vendor:   NVIDIA
+    VRAM:     7810 MB
+    Driver:   32.0.15.7313
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.2.7f2/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.2.7f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.2.7f2/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56104
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.2.7f2/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.2.7f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002229 seconds.
+- Loaded All Assemblies, in  0.454 seconds
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.450 seconds
+Domain Reload Profiling: 902ms
+	BeginReloadAssembly (151ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (43ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (55ms)
+	LoadAllAssembliesAndSetupDomain (191ms)
+		LoadAssemblies (149ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (188ms)
+			TypeCache.Refresh (186ms)
+				TypeCache.ScanAssembly (170ms)
+			BuildScriptInfoCaches (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (450ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (392ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (68ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (91ms)
+			ProcessInitializeOnLoadAttributes (175ms)
+			ProcessInitializeOnLoadMethodAttributes (53ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Import Worker Mode flag is 0x00
+Begin MonoManager ReloadAssembly
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: 20067523083481-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+DirectoryNotFoundException: Could not find a part of the path "C:\Users\thecr\Documents\AP\3DGameProgramming\EXAMEN-Desolation\3dgp-ex-desolation\unity_project\desolation\Library\PackageCache\com.unity.collections@d49facba0036\Unity.Collections.Tests\System.Runtime.CompilerServices.Unsafe\System.Runtime.CompilerServices.Unsafe.dll"
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share, System.Int32 bufferSize, System.Boolean anonymous, System.IO.FileOptions options) [0x0019e] in <59bd7c40c082431db25e1e728ab62789>:0 
+  at System.IO.FileStream..ctor (System.String path, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) [0x00000] in <59bd7c40c082431db25e1e728ab62789>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.FileStream..ctor(string,System.IO.FileMode,System.IO.FileAccess,System.IO.FileShare)
+  at Mono.Cecil.ModuleDefinition.GetFileStream (System.String fileName, System.IO.FileMode mode, System.IO.FileAccess access, System.IO.FileShare share) [0x00006] in <4e339395f8074c75847e518298d9c5fd>:0 
+  at Mono.Cecil.ModuleDefinition.ReadModule (System.String fileName, Mono.Cecil.ReaderParameters parameters) [0x00008] in <4e339395f8074c75847e518298d9c5fd>:0 
+  at Mono.Cecil.AssemblyDefinition.ReadAssembly (System.String fileName, Mono.Cecil.ReaderParameters parameters) [0x00000] in <4e339395f8074c75847e518298d9c5fd>:0 
+  at UnityEditor.AssemblyValidation.LoadAssemblyDefinitions (System.String[] assemblyPaths, System.String[] searchPaths) [0x00048] in <0f0e3f0466c5408ea28e69768919d41d>:0 
+  at UnityEditor.AssemblyValidation.ValidateAssemblies (System.String[] assemblyPaths, System.Boolean enableLogging) [0x00007] in <0f0e3f0466c5408ea28e69768919d41d>:0 
+
+- Loaded All Assemblies, in  0.776 seconds
+Refreshing native plugins compatible for Editor in 1.12 ms, found 3 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for WebGL target not found
+Package Manager log level set to [2]
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.750 seconds
+Domain Reload Profiling: 1522ms
+	BeginReloadAssembly (218ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (33ms)
+	RebuildCommonClasses (41ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (453ms)
+		LoadAssemblies (287ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (290ms)
+			TypeCache.Refresh (211ms)
+				TypeCache.ScanAssembly (194ms)
+			BuildScriptInfoCaches (62ms)
+			ResolveRequiredComponents (11ms)
+	FinalizeReload (750ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (562ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (6ms)
+			BeforeProcessingInitializeOnLoad (126ms)
+			ProcessInitializeOnLoadAttributes (368ms)
+			ProcessInitializeOnLoadMethodAttributes (55ms)
+			AfterProcessingInitializeOnLoad (4ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
+Refreshing native plugins compatible for Editor in 1.93 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6125 unused Assets / (4.2 MB). Loaded Objects now: 6823.
+Memory consumption went from 131.4 MB to 127.2 MB.
+Total: 11.673800 ms (FindLiveObjects: 0.722200 ms CreateObjectMapping: 0.637700 ms MarkObjects: 7.143500 ms  DeleteObjects: 3.168200 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 163075.599217 seconds.
+  path: Assets/Scenes/Angeles/angeles_test.unity
+  artifactKey: Guid(948e7d0b59ab45542bb426814a2b4e81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Angeles/angeles_test.unity using Guid(948e7d0b59ab45542bb426814a2b4e81) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd30d812ee64b95710e07cbf7a0819fb8') in 0.0112917 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.875657 seconds.
+  path: Assets/Scenes/Angeles/angeles_test.unity
+  artifactKey: Guid(948e7d0b59ab45542bb426814a2b4e81) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scenes/Angeles/angeles_test.unity using Guid(948e7d0b59ab45542bb426814a2b4e81) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '157dc4832173f07709089e750a6aeab0') in 0.1656787 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.866170 seconds.
+  path: Assets/New Terrain 1.asset
+  artifactKey: Guid(c2dfa9d61424de74e96e01fa51fe35c8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/New Terrain 1.asset using Guid(c2dfa9d61424de74e96e01fa51fe35c8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6beb0d3738500fdfd000741ea7ca243c') in 0.0408741 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 43.118759 seconds.
+  path: Assets/Scenes/Angeles/prisoner-hostage-low-poly-character/textures
+  artifactKey: Guid(4daebf878dc0bb947a140aabc10596ac) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scenes/Angeles/prisoner-hostage-low-poly-character/textures using Guid(4daebf878dc0bb947a140aabc10596ac) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c6e9dac6bc956ddbc83c0729e32c39b6') in 0.0312248 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Scenes/Angeles/prisoner-hostage-low-poly-character/textures/PowerPlantA.png
+  artifactKey: Guid(c312051a0b41da648baf115ea1ba06c0) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scenes/Angeles/prisoner-hostage-low-poly-character/textures/PowerPlantA.png using Guid(c312051a0b41da648baf115ea1ba06c0) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c49d7a9c654a4e39eb1b7d1c2ab25d5b') in 0.0830873 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.462714 seconds.
+  path: Assets/Scenes/Angeles/prisoner-hostage-low-poly-character
+  artifactKey: Guid(27f1b44a7eb90e148a10575b965b33e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Angeles/prisoner-hostage-low-poly-character using Guid(27f1b44a7eb90e148a10575b965b33e5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '17a28e4d169fe04b0b2c95297b15b940') in 0.0006335 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.776392 seconds.
+  path: Assets/Scenes/Angeles/prisoner-hostage-low-poly-character/source
+  artifactKey: Guid(4d1f6ca7fb2803742a4973e33be2ec90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Angeles/prisoner-hostage-low-poly-character/source using Guid(4d1f6ca7fb2803742a4973e33be2ec90) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '7411fa02dbca43c9580e118cd69bc1e9') in 0.0007091 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.063051 seconds.
+  path: Assets/Scenes/Angeles/prisoner-hostage-low-poly-character/textures
+  artifactKey: Guid(4daebf878dc0bb947a140aabc10596ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scenes/Angeles/prisoner-hostage-low-poly-character/textures using Guid(4daebf878dc0bb947a140aabc10596ac) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '87345ccf2b972a68a095341a2de9dc8b') in 0.000688 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 83.209980 seconds.
+  path: Assets/Prefabs
+  artifactKey: Guid(75865def7f41a6f43aaff73c5a9a51e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs using Guid(75865def7f41a6f43aaff73c5a9a51e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2f0f9f4105641ca745de5d66d17642e4') in 0.0007036 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.916996 seconds.
+  path: Assets/Prefabs
+  artifactKey: Guid(75865def7f41a6f43aaff73c5a9a51e2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Prefabs using Guid(75865def7f41a6f43aaff73c5a9a51e2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0ed2a138da76879502aaafcfc61f2e55') in 0.0278393 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 8.173575 seconds.
+  path: Assets/Prefabs/Prison.prefab
+  artifactKey: Guid(76fe16a191e16524190bb97746cdd97f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Prison.prefab using Guid(76fe16a191e16524190bb97746cdd97f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '040a6fba560eee6280887daa29803d82') in 2.9804892 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 246
+
+========================================================================
+Received Import Request.
+  Time since last request: 20.194113 seconds.
+  path: Assets/Scenes/Angeles/angeles_test.unity
+  artifactKey: Guid(948e7d0b59ab45542bb426814a2b4e81) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Scenes/Angeles/angeles_test.unity using Guid(948e7d0b59ab45542bb426814a2b4e81) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '991e730aaf7024e3e9eee78a9f7dec1d') in 0.0227031 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
