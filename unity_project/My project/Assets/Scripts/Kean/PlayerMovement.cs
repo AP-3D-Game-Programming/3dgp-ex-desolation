@@ -23,9 +23,10 @@ public class First_Person_Movement : MonoBehaviour
     [SerializeField] private bool Sneak = false;
     [SerializeField] private float SneakSpeed;
 
+
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked; 
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
     // Update is called once per frame
@@ -74,6 +75,7 @@ public class First_Person_Movement : MonoBehaviour
         else
         {
             Controller.Move(MoveVector * Speed * Time.deltaTime);
+
         }
         Controller.Move(Velocity * Time.deltaTime);
 
@@ -85,5 +87,11 @@ public class First_Person_Movement : MonoBehaviour
 
         transform.Rotate(0f, PlayerMouseInput.x * Sensitivity, 0f);
         PlayerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+    }
+
+    private void WobbleCamera()
+    {
+        // Camera wobble logic would go here
+
     }
 }
