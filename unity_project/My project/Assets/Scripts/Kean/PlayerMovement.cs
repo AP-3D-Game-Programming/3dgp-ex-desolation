@@ -15,6 +15,7 @@ public class First_Person_Movement : MonoBehaviour
     [Space]
     [Header("Movement")]
     [SerializeField] private float Speed;
+    [SerializeField] private float SprintSpeedIncrease;
     [SerializeField] private float JumpForce;
     [SerializeField] private float Sensitivity;
     [SerializeField] private float Gravity = 9.81f;
@@ -32,8 +33,7 @@ public class First_Person_Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized;
         PlayerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
         MovePlayer();
@@ -49,6 +49,15 @@ public class First_Person_Movement : MonoBehaviour
             Player.localScale = new Vector3(1f, 1f, 1f);
             Sneaking = false;
         }
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            Speed += SprintSpeedIncrease;
+        }
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            Speed -= SprintSpeedIncrease;
+        }
+
     }
     private void MovePlayer()
     {
