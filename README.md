@@ -64,7 +64,22 @@ Games met zelfde soorten mechanics:
 - Er zijn 2 endings, in de ene laat je hem ontsnappen om de wereld te doden. In de andere sacrifice je jezelf om hem gevangen te houden.
 
 ### Kamers
-- Research area met incubation tubes
-- Light containment zone
-- Heavy Containment zone
-- The monster cage, monster stuck in a trap behind a big door
+0_MainMenu
+
+1_CylinderRoom_Intro
+
+2_AdminWing_Hall
+
+2_Office_Observation
+
+3_BioLab_Core
+
+3_ChemLab_Puzzle
+
+4_Maintenance_Room - Je volgt kabels om generators aan te doen, lichamen op de grond, je moet vrijwillig het licht uit doen om de deur te openen, gebruik zaklamp
+
+5_Security_Hub
+
+6_Containment_Core
+
+7_Ending_Sequence
