@@ -153,6 +153,7 @@ MonoBehaviour:
   Controller: {fileID: 209533226}
   Player: {fileID: 209533225}
   Speed: 5
+  SprintSpeedIncrease: 0
   JumpForce: 2
   Sensitivity: 5
   Gravity: 9.81
