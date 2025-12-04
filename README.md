@@ -42,3 +42,44 @@ Games met zelfde soorten mechanics:
 ### Ideeen
 
 - puzzle moeilikheids graad
+
+
+# Lore
+
+(Soviet) research facility:
+- Speler genomen van een gevangenis (gulag) die genomen wordt om te testen.
+
+- Monster ontsnapt en vermoordt alles, maar de laatste wetenschappers hebben zichzelf gesacrificed om het monster gevangen te houden diep in de faciliteit. De faciliteit is op lockdown.
+
+- Het monster heeft een walkie-talkie die met de speler communiceert om te kunnen ontsnappen. Hij leidt je dieper want de faciliteit is op lockdown.
+
+- Speler wordt wakker in een incubation tube.
+
+- Het monster is een geevolueerd mens genaamd de Uber Mens die superior voelt tegenover iedereen. Hij wilt de mensheid uitroven en alleen Uber Mensen op aarde.
+
+- Het monster gaslight je om te geloven dat er andere gevaren zijn.
+
+- Elk kamer heeft een soort puzzel zoals een generator aan doen die je licht geeft en het volgende deur opent. Elke vloer heeft zijn eigen generator.
+
+- Er zijn 2 endings, in de ene laat je hem ontsnappen om de wereld te doden. In de andere sacrifice je jezelf om hem gevangen te houden.
+
+### Kamers
+0_MainMenu
+
+1_CylinderRoom_Intro
+
+2_AdminWing_Hall
+
+2_Office_Observation
+
+3_BioLab_Core
+
+3_ChemLab_Puzzle
+
+4_Maintenance_Room - Je volgt kabels om generators aan te doen, lichamen op de grond, je moet vrijwillig het licht uit doen om de deur te openen, gebruik zaklamp
+
+5_Security_Hub
+
+6_Containment_Core
+
+7_Ending_Sequence
