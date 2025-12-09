@@ -5,7 +5,7 @@ public class MainMenu : MonoBehaviour
 {
     public void PlayGame()
     {
-        SceneManager.LoadScene("1_CylinderRoom_Intro");
+        SceneManager.LoadScene(1);
     }
     public void QuitGame()
     {
