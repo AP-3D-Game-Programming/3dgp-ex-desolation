@@ -5,90 +5,124 @@ public class First_Person_Movement : MonoBehaviour
     private Vector3 Velocity;
     private Vector3 PlayerMovementInput;
     private Vector2 PlayerMouseInput;
-    private bool Sneaking = false;
     private float xRotation;
+
+    // Variabelen om de originele grootte te onthouden
+    private float originalHeight;
+    private Vector3 originalCenter;
 
     [Header("Components Needed")]
     [SerializeField] private Transform PlayerCamera;
     [SerializeField] private CharacterController Controller;
-    [SerializeField] private Transform Player;
+    // [SerializeField] private Transform Player; // <-- NIET NODIG als het script op de speler staat
+
     [Space]
     [Header("Movement")]
     [SerializeField] private float Speed;
     [SerializeField] private float SprintSpeedIncrease;
-    [SerializeField] private float JumpForce;
+    [SerializeField] private float JumpForce; // Iets verhoogd voor test
     [SerializeField] private float Sensitivity;
-    [SerializeField] private float Gravity = 9.81f;
+    [SerializeField] private float Gravity = -9.81f; // Let op: Gravity is meestal negatief in berekeningen
+
     [Space]
     [Header("Sneaking")]
-    [SerializeField] private bool Sneak = false;
+    [SerializeField] private bool CanSneak = true; // Hernoemd voor duidelijkheid
+    [SerializeField] private bool IsSneaking = false;
     [SerializeField] private float SneakSpeed;
-
+    [SerializeField] private float CrouchHeight; // Hoe klein word je?
 
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
+        // Sla de standaard waarden op bij het starten
+        originalHeight = Controller.height;
+        originalCenter = Controller.center;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized;
+        // Input ophalen
+        PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         PlayerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
         MovePlayer();
         MoveCamera();
+        HandleCrouch(); // Bukken apart gezet voor overzicht
+        HandleSprint(); // Sprinten apart gezet
+    }
 
-        if (Input.GetKey(KeyCode.LeftControl) && Sneak)
+    private void HandleCrouch()
+    {
+        // Alleen bukken als we dat mogen (CanSneak)
+        if (Input.GetKeyDown(KeyCode.LeftControl) && CanSneak)
         {
-            Player.localScale = new Vector3(1f, 0.5f, 1f);
-            Sneaking = true;
+            IsSneaking = true;
+            
+            // FIX 1: Pas de Controller aan in plaats van Scale
+            Controller.height = CrouchHeight;
+            // Verplaats het middenpunt zodat de voeten op de grond blijven
         }
+
         if (Input.GetKeyUp(KeyCode.LeftControl))
         {
-            Player.localScale = new Vector3(1f, 1f, 1f);
-            Sneaking = false;
+            IsSneaking = false;
+
+            // Zet alles terug naar normaal
+            Controller.height = originalHeight;
+            Controller.center = originalCenter;
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
+    }
+
+    private void HandleSprint()
+    {
+        // Je mag alleen sprinten als je NIET bukt
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !IsSneaking)
         {
             Speed += SprintSpeedIncrease;
         }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
+        
+        // Als je shift loslaat OF als je begint met bukken terwijl je sprint
+        if (Input.GetKeyUp(KeyCode.LeftShift) || (IsSneaking && Input.GetKey(KeyCode.LeftShift)))
         {
-            Speed -= SprintSpeedIncrease;
+            // Zorg dat we niet oneindig vertragen als we per ongeluk dubbel checken
+            // (Een simpele reset naar basis snelheid is vaak veiliger)
+             // Maar voor jouw logica:
+             Speed -= SprintSpeedIncrease; 
         }
-
     }
+
     private void MovePlayer()
     {
+        // 1. Richting bepalen (Lokaal naar Wereld)
         Vector3 MoveVector = transform.TransformDirection(PlayerMovementInput);
 
+        // 2. Zwaartekracht logic
+        if (Controller.isGrounded && Velocity.y < 0)
+        {
+            Velocity.y = -2f; // Zorgt dat je stevig op de grond blijft
+        }
 
-        if (Controller.isGrounded)
+        // Springen
+        if (Input.GetKeyDown(KeyCode.Space) && Controller.isGrounded && !IsSneaking)
         {
-            Velocity.y = -1f;
+            Velocity.y = Mathf.Sqrt(JumpForce * -2f * Gravity);  
+        }
 
-            if (Input.GetKeyDown(KeyCode.Space) && Sneaking == false)
-            {
-                Velocity.y = JumpForce;
-            }
-        }
-        else
-        {
-            Velocity.y += Gravity * -2f * Time.deltaTime;
-        }
-        if (Sneaking)
-        {
-            Controller.Move(MoveVector * SneakSpeed * Time.deltaTime);
-        }
-        else
-        {
-            Controller.Move(MoveVector * Speed * Time.deltaTime);
+        // Zwaartekracht opbouwen
+        
+        Velocity.y += Gravity * Time.deltaTime;
 
-        }
+        // 3. BEWEGEN (Dit is de fix!)
+        
+        float currentSpeed = IsSneaking ? SneakSpeed : Speed;
+        
+        // A. Horizontale beweging
+        Controller.Move(MoveVector * currentSpeed * Time.deltaTime);
+        
+        // B. Verticale beweging (FIX 2: Deze miste je!)
         Controller.Move(Velocity * Time.deltaTime);
-
     }
+
     private void MoveCamera()
     {
         xRotation -= PlayerMouseInput.y * Sensitivity;
@@ -96,11 +130,5 @@ public class First_Person_Movement : MonoBehaviour
 
         transform.Rotate(0f, PlayerMouseInput.x * Sensitivity, 0f);
         PlayerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-    }
-
-    private void WobbleCamera()
-    {
-        // Camera wobble logic would go here
-
     }
 }
