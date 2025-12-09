@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.4.0 commit date:2022-12-06, commit time:18:46, hash:a95bf1ac01be</authoring_tool>
+    </contributor>
+    <created>2025-04-02T01:42:16</created>
+    <modified>2025-04-02T01:42:16</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="electronics_etx_part_1-effect">
+      <profile_COMMON>
+        <newparam sid="electronics_etx_part_1_png-surface">
+          <surface type="2D">
+            <init_from>electronics_etx_part_1_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="electronics_etx_part_1_png-sampler">
+          <sampler2D>
+            <source>electronics_etx_part_1_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="electronics_etx_part_1_png-sampler" texcoord="UVMap"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="electronics_etx_part_1_png" name="electronics_etx_part_1_png">
+      <init_from>electronics_etx_part_1.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="electronics_etx_part_1-material" name="electronics_etx_part_1">
+      <instance_effect url="#electronics_etx_part_1-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="circuit_board_etx_1_mesh-mesh" name="circuit_board_etx_1_mesh">
+      <mesh>
+        <source id="circuit_board_etx_1_mesh-mesh-positions">
+          <float_array id="circuit_board_etx_1_mesh-mesh-positions-array" count="60">0.08199995 -2.15074e-7 -0.0859999 -0.08099997 -2.02768e-7 -0.0859999 0.08199995 0.003999769 -0.0859999 -0.08099997 0.003999769 -0.0859999 -0.1219999 0.003999769 -0.04399991 0.116 -2.24652e-7 -0.04399991 -0.1219999 -2.06684e-7 -0.04399991 0.116 0.003999769 -0.04399991 -0.08099997 -2.04905e-7 -0.05499988 0.08199995 0.003999769 -0.05499988 -0.08099997 0.003999769 -0.05499988 0.08199995 -2.17211e-7 -0.05499988 0.116 -2.1108e-7 0.144 0.09599995 -2.07997e-7 0.164 -0.1019999 -1.93048e-7 0.164 -0.1219999 -1.93111e-7 0.144 -0.1219999 0.003999769 0.144 -0.1019999 0.003999769 0.164 0.09599995 0.003999769 0.164 0.116 0.003999769 0.144</float_array>
+          <technique_common>
+            <accessor source="#circuit_board_etx_1_mesh-mesh-positions-array" count="20" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="circuit_board_etx_1_mesh-mesh-normals">
+          <float_array id="circuit_board_etx_1_mesh-mesh-normals-array" count="90">0 0 -1 -1 0 0 0 -1 0 0 0 1 0 1 0 0 1 0 0.3078202 0 -0.9514446 1 0 0 0 1 3.44622e-7 -0.2591285 0 -0.9658429 0 -1 -4.43109e-7 -0.7071067 0 0.7071069 0.7071068 0 0.7071067 0 -1 0 0 0 -1 0 -1 0 0 0 1 0 1 0 0 1 0 0 1 0 0 1 0 0.3078199 0 -0.9514447 0 1 4.54494e-7 -0.2591283 0 -0.965843 0 -1 -4.43118e-7 -0.7071067 0 0.707107 0.7071069 0 0.7071068 0 -1 0 0 -1 0 0 -1 0</float_array>
+          <technique_common>
+            <accessor source="#circuit_board_etx_1_mesh-mesh-normals-array" count="30" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="circuit_board_etx_1_mesh-mesh-map-0">
+          <float_array id="circuit_board_etx_1_mesh-mesh-map-0-array" count="216">0.5390625 0.466682 0.5410156 0.3730469 0.5390625 0.3730468 0.3925781 0.3515625 0.5292969 0.3496094 0.5292969 0.3515625 0.4178282 0.466682 0.4003906 0.3730469 0.417828 0.3730468 0.3808594 0.3515625 0.5253906 0.3496094 0.5253906 0.3515625 0.3613281 0.3515625 0.3847656 0.3496094 0.3847656 0.3515625 0.4003906 0.3730468 0.4178282 0.466682 0.417828 0.3730468 0.4240156 0.4902343 0.5297656 0.4902344 0.5410156 0.4787454 0.5410156 0.3515625 0.5136719 0.3496094 0.5136719 0.3515625 0.5292969 0.3515625 0.3925781 0.3496094 0.3925781 0.3515625 0.3847656 0.3515625 0.3613281 0.3496094 0.3613281 0.3515625 0.4240157 0.3535156 0.4178282 0.4666819 0.4240157 0.4902343 0.3964844 0.3515625 0.3652344 0.3496094 0.3652344 0.3515625 0.4240157 0.3535156 0.4178282 0.466682 0.4178282 0.3730469 0.3652344 0.3496094 0.3808594 0.3515625 0.3652344 0.3515625 0.5410156 0.3515625 0.5253906 0.3496094 0.5410156 0.3496094 0.4240156 0.3535156 0.5410156 0.4787454 0.4240155 0.4902343 0.5390625 0.466682 0.5410156 0.466682 0.5410156 0.3730469 0.3925781 0.3515625 0.3925781 0.3496094 0.5292969 0.3496094 0.4178282 0.466682 0.4003906 0.466682 0.4003906 0.3730469 0.3808594 0.3515625 0.3808594 0.3496094 0.5253906 0.3496094 0.3613281 0.3515625 0.3613281 0.3496094 0.3847656 0.3496094 0.4003906 0.3730468 0.4003906 0.466682 0.4178282 0.466682 0.5410156 0.4787454 0.5410156 0.3650046 0.4240156 0.4902343 0.5410156 0.3650046 0.5297656 0.3535156 0.4240155 0.3535155 0.4240156 0.4902343 0.5410156 0.3650046 0.4240155 0.3535155 0.5410156 0.3515625 0.5410156 0.3496094 0.5136719 0.3496094 0.5292969 0.3515625 0.5292969 0.3496094 0.3925781 0.3496094 0.3847656 0.3515625 0.3847656 0.3496094 0.3613281 0.3496094 0.4240157 0.3535156 0.4178281 0.3730468 0.4178282 0.4666819 0.3964844 0.3515625 0.3964844 0.3496094 0.3652344 0.3496094 0.4240157 0.3535156 0.4240157 0.4902344 0.4178282 0.466682 0.3652344 0.3496094 0.3808594 0.3496094 0.3808594 0.3515625 0.5410156 0.3515625 0.5253906 0.3515625 0.5253906 0.3496094 0.4240156 0.3535156 0.5297656 0.3535156 0.5410156 0.3650046 0.5410156 0.3650046 0.5410156 0.4787454 0.4240156 0.3535156 0.5410156 0.4787454 0.5297656 0.4902344 0.4240155 0.4902343</float_array>
+          <technique_common>
+            <accessor source="#circuit_board_etx_1_mesh-mesh-map-0-array" count="108" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="circuit_board_etx_1_mesh-mesh-vertices">
+          <input semantic="POSITION" source="#circuit_board_etx_1_mesh-mesh-positions"/>
+        </vertices>
+        <triangles material="electronics_etx_part_1-material" count="36">
+          <input semantic="VERTEX" source="#circuit_board_etx_1_mesh-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#circuit_board_etx_1_mesh-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#circuit_board_etx_1_mesh-mesh-map-0" offset="2" set="0"/>
+          <p>1 0 0 2 0 1 0 0 2 4 1 3 15 1 4 16 1 5 8 2 6 0 2 7 11 2 8 17 3 9 13 3 10 18 3 11 3 1 12 8 1 13 10 1 14 2 4 15 10 4 16 9 4 17 4 5 18 16 5 19 17 5 20 7 6 21 11 6 22 9 6 23 19 7 24 5 7 25 7 7 26 9 7 27 0 7 28 2 7 29 7 8 30 10 8 31 4 8 32 10 9 33 6 9 34 4 9 35 5 10 36 8 10 37 11 10 38 15 11 39 17 11 40 16 11 41 19 12 42 13 12 43 12 12 44 5 13 45 14 13 46 6 13 47 1 14 48 3 14 49 2 14 50 4 1 51 6 1 52 15 1 53 8 15 54 1 15 55 0 15 56 17 16 57 14 16 58 13 16 59 3 1 60 1 1 61 8 1 62 2 17 63 3 17 64 10 17 65 17 18 66 18 18 67 4 18 68 18 19 69 19 19 70 7 19 71 4 20 72 18 20 73 7 20 74 7 21 75 5 21 76 11 21 77 19 7 78 12 7 79 5 7 80 9 7 81 11 7 82 0 7 83 7 22 84 9 22 85 10 22 86 10 23 87 8 23 88 6 23 89 5 24 90 6 24 91 8 24 92 15 25 93 14 25 94 17 25 95 19 26 96 18 26 97 13 26 98 5 27 99 12 27 100 13 27 101 13 28 102 14 28 103 5 28 104 14 29 105 15 29 106 6 29 107</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="circuit_board_etx_1" name="circuit_board_etx_1" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 -4.37114e-8 -1 0 0 1 -4.37114e-8 0 0 0 0 1</matrix>
+        <instance_geometry url="#circuit_board_etx_1_mesh-mesh" name="circuit_board_etx_1">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="electronics_etx_part_1-material" target="#electronics_etx_part_1-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
