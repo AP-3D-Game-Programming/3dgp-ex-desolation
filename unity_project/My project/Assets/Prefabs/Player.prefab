@@ -362,7 +362,7 @@ MonoBehaviour:
   Controller: {fileID: 6772587048817623303}
   Speed: 2
   SprintSpeedIncrease: 1
-  JumpForce: 2
+  JumpForce: 5
   Sensitivity: 3
   Gravity: -9.81
   CanSneak: 1
