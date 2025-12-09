@@ -42,7 +42,7 @@ public class First_Person_Movement : MonoBehaviour
     void Update()
     {
         // Input ophalen
-        PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
+        PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized;
         PlayerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
 
         MovePlayer();
