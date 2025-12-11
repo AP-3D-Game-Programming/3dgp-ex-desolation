@@ -65,6 +65,8 @@ public class First_Person_Movement : MonoBehaviour
 
     void Update()
     {
+        // Input ophalen
+        PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized;
         PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
         PlayerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         
@@ -121,7 +123,7 @@ public class First_Person_Movement : MonoBehaviour
         // Springen
         if (Input.GetKeyDown(KeyCode.Space) && Controller.isGrounded && !IsSneaking)
         {
-            Velocity.y = Mathf.Sqrt(JumpForce * -2f * Gravity);  
+            Velocity.y = Mathf.Sqrt(JumpForce);  
         }
 
         Velocity.y += Gravity * Time.deltaTime;
