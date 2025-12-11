@@ -65,12 +65,9 @@ public class First_Person_Movement : MonoBehaviour
 
     void Update()
     {
-<<<<<<< HEAD
         // Input ophalen
         PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical")).normalized;
-=======
         PlayerMovementInput = new Vector3(Input.GetAxis("Horizontal"), 0f, Input.GetAxis("Vertical"));
->>>>>>> 52faaaff66c1578a4fe4ac139ed44c1b8e2fa679
         PlayerMouseInput = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y"));
         
         // Sla de magnitude op voor de voetstapcheck
