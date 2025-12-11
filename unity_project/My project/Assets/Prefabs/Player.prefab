@@ -369,6 +369,10 @@ MonoBehaviour:
   IsSneaking: 0
   SneakSpeed: 1
   CrouchHeight: 1
+  FootstepSource: {fileID: 0}
+  MultiStepClip: {fileID: 0}
+  SingleStepDuration: 0.4
+  TotalStepsInClip: 5
 --- !u!143 &6772587048817623303
 CharacterController:
   m_ObjectHideFlags: 0
