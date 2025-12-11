@@ -123,7 +123,7 @@ public class First_Person_Movement : MonoBehaviour
         // Springen
         if (Input.GetKeyDown(KeyCode.Space) && Controller.isGrounded && !IsSneaking)
         {
-            Velocity.y = Mathf.Sqrt(JumpForce * -2f * Gravity);  
+            Velocity.y = Mathf.Sqrt(JumpForce);  
         }
 
         Velocity.y += Gravity * Time.deltaTime;
