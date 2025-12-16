@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA xmlns="http://www.collada.org/2005/11/COLLADASchema" version="1.4.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <asset>
+    <contributor>
+      <author>Blender User</author>
+      <authoring_tool>Blender 3.4.0 commit date:2022-12-06, commit time:18:46, hash:a95bf1ac01be</authoring_tool>
+    </contributor>
+    <created>2025-08-09T22:38:12</created>
+    <modified>2025-08-09T22:38:12</modified>
+    <unit name="meter" meter="1"/>
+    <up_axis>Z_UP</up_axis>
+  </asset>
+  <library_effects>
+    <effect id="small_tree_rt_1-effect">
+      <profile_COMMON>
+        <newparam sid="small_tree_rt_1_png-surface">
+          <surface type="2D">
+            <init_from>small_tree_rt_1_png</init_from>
+          </surface>
+        </newparam>
+        <newparam sid="small_tree_rt_1_png-sampler">
+          <sampler2D>
+            <source>small_tree_rt_1_png-surface</source>
+          </sampler2D>
+        </newparam>
+        <technique sid="common">
+          <lambert>
+            <emission>
+              <color sid="emission">0 0 0 1</color>
+            </emission>
+            <diffuse>
+              <texture texture="small_tree_rt_1_png-sampler" texcoord="UVMap"/>
+            </diffuse>
+            <index_of_refraction>
+              <float sid="ior">1.45</float>
+            </index_of_refraction>
+          </lambert>
+        </technique>
+      </profile_COMMON>
+    </effect>
+  </library_effects>
+  <library_images>
+    <image id="small_tree_rt_1_png" name="small_tree_rt_1_png">
+      <init_from>small_tree_rt_1.png</init_from>
+    </image>
+  </library_images>
+  <library_materials>
+    <material id="small_tree_rt_1-material" name="small_tree_rt_1">
+      <instance_effect url="#small_tree_rt_1-effect"/>
+    </material>
+  </library_materials>
+  <library_geometries>
+    <geometry id="small_tree_rt_1-mesh" name="small_tree_rt_1">
+      <mesh>
+        <source id="small_tree_rt_1-mesh-positions">
+          <float_array id="small_tree_rt_1-mesh-positions-array" count="48">-0.2889679 0 0.1052246 0.288968 0 -0.1052246 -0.2889679 1.139358 0.1052245 0.2889679 1.139358 -0.1052247 0.1052247 0 0.2889679 -0.1052246 0 -0.288968 0.1052246 1.185692 0.2889679 -0.1052247 1.185692 -0.288968 -0.1299261 0 0.2787363 0.1299262 0 -0.2787362 -0.1299262 1.224 0.2787362 0.1299261 1.224 -0.2787364 0.2787363 0 0.1299262 -0.2787363 0 -0.1299262 0.2787363 1.185692 0.1299262 -0.2787363 1.185692 -0.1299262</float_array>
+          <technique_common>
+            <accessor source="#small_tree_rt_1-mesh-positions-array" count="16" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="small_tree_rt_1-mesh-normals">
+          <float_array id="small_tree_rt_1-mesh-normals-array" count="21">0.3421605 1.19552e-7 0.9396416 0.9396415 0 -0.3421606 0.9063709 0 0.4224829 0.4224829 0 -0.906371 0.3421605 1.19552e-7 0.9396416 0.9063709 0 0.4224829 0.422483 0 -0.9063709</float_array>
+          <technique_common>
+            <accessor source="#small_tree_rt_1-mesh-normals-array" count="7" stride="3">
+              <param name="X" type="float"/>
+              <param name="Y" type="float"/>
+              <param name="Z" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <source id="small_tree_rt_1-mesh-map-0">
+          <float_array id="small_tree_rt_1-mesh-map-0-array" count="48">0 0.06915181 1 1 0 1 0 0.03129726 1 1 1 0.03129726 0 0 1 1 1 0 0 0.03129726 1 1 1 0.03129726 0 0.06915181 1 0.06915187 1 1 0 0.03129726 0 1 1 1 0 0 0 1 1 1 0 0.03129726 0 1 1 1</float_array>
+          <technique_common>
+            <accessor source="#small_tree_rt_1-mesh-map-0-array" count="24" stride="2">
+              <param name="S" type="float"/>
+              <param name="T" type="float"/>
+            </accessor>
+          </technique_common>
+        </source>
+        <vertices id="small_tree_rt_1-mesh-vertices">
+          <input semantic="POSITION" source="#small_tree_rt_1-mesh-positions"/>
+        </vertices>
+        <triangles material="small_tree_rt_1-material" count="8">
+          <input semantic="VERTEX" source="#small_tree_rt_1-mesh-vertices" offset="0"/>
+          <input semantic="NORMAL" source="#small_tree_rt_1-mesh-normals" offset="1"/>
+          <input semantic="TEXCOORD" source="#small_tree_rt_1-mesh-map-0" offset="2" set="0"/>
+          <p>0 0 0 3 0 1 2 0 2 5 1 3 6 1 4 4 1 5 9 2 6 10 2 7 8 2 8 13 3 9 14 3 10 12 3 11 0 4 12 1 4 13 3 4 14 5 1 15 7 1 16 6 1 17 9 5 18 11 5 19 10 5 20 13 6 21 15 6 22 14 6 23</p>
+        </triangles>
+      </mesh>
+    </geometry>
+  </library_geometries>
+  <library_visual_scenes>
+    <visual_scene id="Scene" name="Scene">
+      <node id="small_tree_rt_1" name="small_tree_rt_1" type="NODE">
+        <matrix sid="transform">1 0 0 0 0 -4.37114e-8 -1 0 0 1 -4.37114e-8 0 0 0 0 1</matrix>
+        <instance_geometry url="#small_tree_rt_1-mesh" name="small_tree_rt_1">
+          <bind_material>
+            <technique_common>
+              <instance_material symbol="small_tree_rt_1-material" target="#small_tree_rt_1-material">
+                <bind_vertex_input semantic="UVMap" input_semantic="TEXCOORD" input_set="0"/>
+              </instance_material>
+            </technique_common>
+          </bind_material>
+        </instance_geometry>
+      </node>
+    </visual_scene>
+  </library_visual_scenes>
+  <scene>
+    <instance_visual_scene url="#Scene"/>
+  </scene>
+</COLLADA>
