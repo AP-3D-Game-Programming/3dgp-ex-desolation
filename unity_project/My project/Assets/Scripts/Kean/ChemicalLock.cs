@@ -9,12 +9,14 @@ public class ChemicalLock : MonoBehaviour
     public List<ChemicalItem> requiredIngredients; // Sleep hier de namen in (bijv: Vinegar, Salt, Lemon)
     
     [Header("Visuals & Audio")]
-    public Renderer handleRenderer;       // Sleep hier de Mesh Renderer van de klink in
+    public Renderer handleRenderer;
+    public Renderer lockRenderer;       // Sleep hier de Mesh Renderer van de klink in
     public Material cleanMaterial;       // Het schone materiaal
     public AudioSource audioSource;      // AudioSource op de deur
     public AudioClip pourSound;          // Het 'glug glug' geluid
     public AudioClip powderSound;        // Optioneel: geluid voor zout (of leeg laten)
     private List<ChemicalItem> addedIngredients = new List<ChemicalItem>();
+    public bool DoorUnlocked = false; 
     
 
     public void AddChemical(ChemicalItem item)
@@ -41,8 +43,9 @@ public class ChemicalLock : MonoBehaviour
             // Check of we alle ingrediënten hebben
             if (CheckSolution(item))
             {
-                UnlockLock();
+                DoorUnlocked = true;
                 handleRenderer.material = cleanMaterial;
+                lockRenderer.material = cleanMaterial;
             }
             else
             {
@@ -94,10 +97,6 @@ public class ChemicalLock : MonoBehaviour
 
 
 
-    }
-    void UnlockLock()
-    {
-        Debug.Log("SLOT GEOPEND!");
     }
 
 }

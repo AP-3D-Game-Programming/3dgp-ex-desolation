@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ObjectPickup : MonoBehaviour
 {
@@ -8,29 +7,46 @@ public class ObjectPickup : MonoBehaviour
     public Transform playerCamera; // Je Camera
     public Transform holdPos;      // Het punt waar het object moet hangen
     public GameObject Door; 
-    public float pickUpRange = 4f;
+    public float pickUpRange = 1f;
     public float throwForce = 500f;
-
+    [SerializeField] private TextMeshProUGUI itemLookedAtText;
+    public Canvas itemOverlayCanvas;
+    [HideInInspector]
     public GameObject heldObj;
     private Rigidbody heldObjRb;
     private Collider heldObjCol;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        RaycastHit hit;
+        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, pickUpRange))
         {
-            if (heldObj == null) TryPickUp();
-            else 
+            ChemicalItem itemScript = hit.collider.GetComponent<ChemicalItem>();
+            if (itemScript != null && heldObj == null)
             {
-                Collider objectCollider = heldObj.GetComponent<Collider>();
-                if (objectCollider.bounds.Intersects(Door.GetComponent<Collider>().bounds))
+                Debug.Log("Looking at: " + itemScript.substanceName);
+                itemOverlayCanvas.enabled = true;
+                itemLookedAtText.text = itemScript.substanceName;
+            }
+            
+            
+            if (Input.GetKeyDown(KeyCode.E))
+
+            {
+                if (heldObj == null) TryPickUp(hit);
+                else 
                 {
-                    Door.GetComponent<ChemicalLock>().AddChemical(heldObj.GetComponent<ChemicalItem>()); //Ophalen van ChemicalItem script
-                    return;
-                }
-                else DropObject();
-            };
+                    Collider objectCollider = heldObj.GetComponent<Collider>();
+                    if (objectCollider.bounds.Intersects(Door.GetComponent<Collider>().bounds))
+                    {
+                        Door.GetComponent<ChemicalLock>().AddChemical(heldObj.GetComponent<ChemicalItem>()); //Ophalen van ChemicalItem script
+                        return;
+                    }
+                    else DropObject();
+                };
+            }
         }
+        else itemOverlayCanvas.enabled = false;
 
         // 2. INPUT: GOOIEN (Muisklik)
         if (heldObj != null && Input.GetMouseButtonDown(0))
@@ -50,17 +66,13 @@ public class ObjectPickup : MonoBehaviour
         }
     }
 
-    void TryPickUp()
+    void TryPickUp(RaycastHit hit)
     {
-        RaycastHit hit;
         // Schiet straal vanuit camera
-        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, pickUpRange))
-        {
             // Check of het object een Rigidbody heeft (anders kunnen we het niet pakken)
             if (hit.transform.GetComponent<Rigidbody>())
             {
                 heldObj = hit.transform.gameObject;
-                //heldItem = heldObj;
                 Debug.Log("GEPAKT: " + heldObj.name);
                 heldObjRb = heldObj.GetComponent<Rigidbody>();
                 heldObjCol = heldObj.GetComponent<Collider>();
@@ -73,7 +85,6 @@ public class ObjectPickup : MonoBehaviour
                 // tegenaan botsen. Hij kan dus ook niet verdwijnen door physics glitches.
                 if (heldObjCol != null) heldObjCol.isTrigger = true;
             }
-        }
     }
 
     void DropObject()
@@ -96,7 +107,11 @@ public class ObjectPickup : MonoBehaviour
     {
         // Zelfde als Drop, maar met kracht
         heldObjRb.isKinematic = false;
-        if (heldObjCol != null) heldObjCol.enabled = true;
+        if (heldObjCol != null) 
+        {
+            heldObjCol.enabled = true;
+            heldObjCol.isTrigger = false;
+        }
 
         // Gooi in de richting waar de camera heen kijkt
         heldObjRb.AddForce(playerCamera.forward * throwForce);
