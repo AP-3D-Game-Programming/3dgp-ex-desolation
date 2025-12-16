@@ -24,7 +24,6 @@ public class ObjectPickup : MonoBehaviour
             ChemicalItem itemScript = hit.collider.GetComponent<ChemicalItem>();
             if (itemScript != null && heldObj == null)
             {
-                Debug.Log("Looking at: " + itemScript.substanceName);
                 itemOverlayCanvas.enabled = true;
                 itemLookedAtText.text = itemScript.substanceName;
             }
