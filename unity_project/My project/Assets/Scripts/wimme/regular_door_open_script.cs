@@ -14,42 +14,35 @@ public class RegularDoorOpenJumpscare : MonoBehaviour
     public float sluitVertraging = 1.5f; 
     
     [Header("Audio Instellingen")]
-    // Sleep hier het geluid voor het OPENEN in
-    public AudioClip openGeluidsClip;
-    // Sleep hier het geluid voor het NORMALE SLUITEN in
-    public AudioClip sluitGeluidsClip;
-    // Sleep hier het geluid voor de JUMP SCARE (BAM!) in
-    public AudioClip bamGeluidsClip; 
+    public AudioClip openGeluidsClip;   // Krakend geluid bij openen
+    public AudioClip sluitGeluidsClip;  // Krakend geluid bij normaal sluiten
+    public AudioClip bamGeluidsClip;    // De harde klap (via Animation Event)
     
     private bool isGeopend = false;
     private bool isPlayerInTrigger = false;
-    private bool isFirstTimeDoorUsed = true; // Start op TRUE voor de jump scare
+    private bool isFirstTimeDoorUsed = true; 
 
     void Start()
     {
         animator = GetComponent<Animator>();
-        
-        // Haal of voeg de AudioSource component toe
         audioSource = GetComponent<AudioSource>();
+        
         if (audioSource == null)
         {
             audioSource = gameObject.AddComponent<AudioSource>();
             audioSource.playOnAwake = false;
-            // Zorg dat het geluid in de 3D-wereld klinkt (optioneel)
             audioSource.spatialBlend = 1f; 
         }
 
-        // Zorg dat de Animator de 'IsFirstTime' bool kent
+        // Zet de startwaarde voor de jumpscare in de animator
         animator.SetBool(eersteKeerParameterNaam, isFirstTimeDoorUsed);
     }
 
     void Update()
     {
-        // ... (De interactie met de 'E' toets via de Raycaster)
-        // Voor nu, een placeholder om de deur te openen als 'E' wordt ingedrukt
-        if (Input.GetKeyDown(interactieToets) && !isGeopend)
+        // CHECK: Alleen openen als de speler op E drukt EN in de trigger staat
+        if (Input.GetKeyDown(interactieToets) && isPlayerInTrigger && !isGeopend)
         {
-            // Je moet hier nog controleren of de speler naar de deur kijkt (via de Raycaster)
             OpenDeur();
         }
     }
@@ -59,6 +52,7 @@ public class RegularDoorOpenJumpscare : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = true;
+            // Stop het automatisch sluiten als de speler weer terug de zone in loopt
             CancelInvoke("SluitDeurAutomatisch"); 
         }
     }
@@ -68,6 +62,7 @@ public class RegularDoorOpenJumpscare : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInTrigger = false;
+            // Als de deur open is wanneer de speler wegloopt, start de sluit-timer
             if (isGeopend)
             {
                 Invoke("SluitDeurAutomatisch", sluitVertraging);
@@ -75,12 +70,11 @@ public class RegularDoorOpenJumpscare : MonoBehaviour
         }
     }
 
-    void OpenDeur()
+    public void OpenDeur()
     {
         isGeopend = true;
         animator.SetBool(openParameterNaam, true);
         
-        // *** GELUID: DEUR OPENEN ***
         if (openGeluidsClip != null)
         {
             audioSource.PlayOneShot(openGeluidsClip);
@@ -89,6 +83,7 @@ public class RegularDoorOpenJumpscare : MonoBehaviour
 
     void SluitDeurAutomatisch()
     {
+        // Extra veiligheidscheck: sluit alleen als de speler echt buiten de trigger is
         if (!isPlayerInTrigger && isGeopend)
         {
             isGeopend = false;
@@ -96,30 +91,34 @@ public class RegularDoorOpenJumpscare : MonoBehaviour
             
             if (isFirstTimeDoorUsed)
             {
-                // De Animator start de 'BAM' animatie
+                // De Animator speelt nu de 'BAM' animatie af
                 isFirstTimeDoorUsed = false;
-                animator.SetBool(eersteKeerParameterNaam, false); 
                 
-                // *** GELUID: JUMP SCARE BAM! ***
-                if (bamGeluidsClip != null)
-                {
-                    audioSource.PlayOneShot(bamGeluidsClip);
-                }
+                // Wacht heel even zodat de Animator de 'BAM' state pakt voordat we de bool op false zetten
+                Invoke("DeactiveerFirstTime", 0.1f);
             }
             else
             {
-                // De Animator start de normale sluit animatie
-                
-                // *** GELUID: NORMAAL SLUITEN ***
+                // Normale sluiting: speel het krakende geluid direct af
                 if (sluitGeluidsClip != null)
                 {
                     audioSource.PlayOneShot(sluitGeluidsClip);
                 }
             }
         }
-        else if (isPlayerInTrigger)
+    }
+
+    void DeactiveerFirstTime()
+    {
+        animator.SetBool(eersteKeerParameterNaam, false);
+    }
+
+    // ROEP DEZE AAN VIA EEN ANIMATION EVENT aan het einde van "door_close_bam"
+    public void SpeelBamImpact()
+    {
+        if (bamGeluidsClip != null)
         {
-            CancelInvoke("SluitDeurAutomatisch");
+            audioSource.PlayOneShot(bamGeluidsClip);
         }
     }
 }
