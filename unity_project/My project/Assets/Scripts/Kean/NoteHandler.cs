@@ -27,9 +27,9 @@ public class NoteHandler : MonoBehaviour
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, 4f))
+        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, 4f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
         {
-            if (hit.collider.gameObject == gameObject)
+            if (hit.collider.gameObject.name == "Note")
             {
                 if (itemOverlayCanvas != null && !ReadingNote)
                 {
@@ -42,20 +42,12 @@ public class NoteHandler : MonoBehaviour
                     if (!ReadingNote)
                     {
                         Debug.Log("Note geopend");
-                        if (playerMovementScript != null )playerMovementScript.enabled = false;
+                        if (playerMovementScript != null) playerMovementScript.enabled = false;
                         OpenNote();
                         ReadingNote = true; 
                     }
                     return;
                 }
-            }
-            else
-            {
-                if (itemOverlayCanvas != null)
-                {
-                    itemOverlayCanvas.enabled = false;
-                }
-                
             }
         }
 
