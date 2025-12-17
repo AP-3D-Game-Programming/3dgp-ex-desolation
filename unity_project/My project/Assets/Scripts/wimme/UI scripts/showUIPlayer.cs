@@ -1,25 +1,21 @@
 using UnityEngine;
 using TMPro; 
-using System.Collections; // Nodig voor Coroutines
+using System.Collections; 
 
 public class PlayerUIRaycaster : MonoBehaviour
 {
     [Header("UI Elementen")]
-    // Sleep hier het Canvas element naartoe
     public Canvas itemOverlayCanvas;
-    // Sleep hier het TextMeshPro Text component naartoe
     public TextMeshProUGUI itemLookedAtText; 
 
     [Header("Instellingen")]
-    // Sleep hier de Camera van de speler naartoe
     public Transform playerCamera; 
     public float interactieBereik = 3f; 
     
-    // Selecteer in de Inspector ALLEEN de Layer 'RaycastInteractable'
-    public LayerMask interactableLayers; 
+    // Verander dit in de Inspector naar 'Everything' of selecteer beide layers (Interactable & Draggable)
+    public LayerMask detectieLayers; 
 
     [Header("Horror Stijl Instellingen")]
-    // Hoe snel elke letter verschijnt
     public float typemachineSnelheid = 0.05f; 
 
     private string huidigeTekst = ""; 
@@ -27,46 +23,51 @@ public class PlayerUIRaycaster : MonoBehaviour
 
     void Update()
     {
-        // 1. Standaard UI uitzetten
+        // 1. Standaard UI (Canvas inclusief Crosshair) uitzetten
         itemOverlayCanvas.enabled = false;
 
         RaycastHit hit;
         string nieuweTekst = "";
-        bool kijktNaarInteractable = false;
+        bool toonUI = false;
 
-        // 2. Raycast afvuren, gebruikt LayerMask om alleen de kleine hitboxes te raken
-        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, interactieBereik, interactableLayers))
+        // 2. Raycast afvuren op de geselecteerde layers
+        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, interactieBereik, detectieLayers))
         {
-            // Probeer de IInteractable interface te pakken van de geraakte collider
-            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
+            // We kijken naar iets op de juiste layer, dus de crosshair mag aan
+            toonUI = true;
+            itemOverlayCanvas.enabled = true;
 
+            // 3. Check of het object ook tekst heeft (IInteractable interface)
+            IInteractable interactable = hit.collider.GetComponent<IInteractable>();
             if (interactable != null)
             {
-                kijktNaarInteractable = true;
-                itemOverlayCanvas.enabled = true;
                 nieuweTekst = interactable.GetInteractionText();
+            }
+            else
+            {
+                // Als het object wel op de layer zit (zoals een sleepbaar object) 
+                // maar geen script heeft, tonen we alleen de crosshair (tekst wordt leeg)
+                nieuweTekst = ""; 
             }
         }
         
-        // 3. Typemachine Logica (Controleert of de tekst moet veranderen)
-        if (kijktNaarInteractable)
+        // 4. Typemachine Logica voor de tekst
+        HandleTypemachine(toonUI, nieuweTekst);
+    }
+
+    void HandleTypemachine(bool isKijkend, string tekst)
+    {
+        if (isKijkend && tekst != "")
         {
-            if (nieuweTekst != huidigeTekst)
+            if (tekst != huidigeTekst)
             {
-                // Stop lopende animatie
-                if (typeCoroutine != null)
-                {
-                    StopCoroutine(typeCoroutine);
-                }
-                
-                huidigeTekst = nieuweTekst;
-                // Start nieuwe animatie
-                typeCoroutine = StartCoroutine(TypeTekstCoroutine(nieuweTekst));
+                if (typeCoroutine != null) StopCoroutine(typeCoroutine);
+                huidigeTekst = tekst;
+                typeCoroutine = StartCoroutine(TypeTekstCoroutine(tekst));
             }
         }
-        else // Kijkt niet naar een interactief object
+        else
         {
-            // Ruim op: stop animatie en wis tekst
             if (typeCoroutine != null)
             {
                 StopCoroutine(typeCoroutine);
@@ -77,11 +78,9 @@ public class PlayerUIRaycaster : MonoBehaviour
         }
     }
 
-    // Coroutine voor het typemachine-effect
     IEnumerator TypeTekstCoroutine(string tekstOmTeTonen)
     {
-        itemLookedAtText.text = ""; // Start met lege tekst
-        
+        itemLookedAtText.text = ""; 
         foreach (char letter in tekstOmTeTonen.ToCharArray())
         {
             itemLookedAtText.text += letter; 
