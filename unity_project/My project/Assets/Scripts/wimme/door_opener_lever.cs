@@ -3,29 +3,35 @@ using UnityEngine;
 public class DoorActivator : MonoBehaviour
 {
     private Animator animator;
+    private AudioSource audioSource; // NIEUW: Component voor geluid
 
     [Header("Deur Instellingen")]
-    // De naam van de Bool parameter in de Animator (NIEUW!)
-    // True = Open, False = Gesloten
     public string IsOpenParameterName = "IsOpen"; 
-    
-    // De tijd in seconden voordat de deur automatisch sluit
     public float sluitVertraging = 3.0f; 
-
-    // De toets om de deur te openen
     public KeyCode interactieToets = KeyCode.E;
 
-    // Houdt de huidige staat van de deur bij
+    [Header("Geluiden")] // NIEUW: Variabelen voor de geluiden
+    public AudioClip openGeluid;
+    public AudioClip sluitGeluid;
+
     private bool isDeurGeopend = false;
     private bool spelerBijDeur = false;
 
     void Start()
     {
         animator = GetComponent<Animator>();
+        audioSource = GetComponent<AudioSource>(); // NIEUW: Haal de AudioSource op
 
         if (animator == null)
         {
             Debug.LogError("DoorActivator: Kan geen Animator component vinden op dit Deur GameObject.", this);
+        }
+        
+        // Zorg ervoor dat de AudioSource aanwezig is voor geluidseffecten
+        if (audioSource == null)
+        {
+            Debug.LogWarning("DoorActivator: Geen AudioSource component gevonden. Geluiden zullen NIET werken.", this);
+            // Voeg optioneel een component toe als deze ontbreekt: audioSource = gameObject.AddComponent<AudioSource>();
         }
     }
 
@@ -37,8 +43,6 @@ public class DoorActivator : MonoBehaviour
             // Deur is gesloten en moet geopend worden
             if (!isDeurGeopend)
             {
-                Debug.Log("DoorActivator: Speler probeert deur te openen. Controleer grendelstatus...");
-
                 // CRUCIALE CHECK: Is de hendel overgehaald?
                 if (GrendelActivator.GrendelLosgehaald)
                 {
@@ -46,18 +50,20 @@ public class DoorActivator : MonoBehaviour
                 }
                 else
                 {
+                    // OPTIONEEL: Speel hier een "deur zit vast" geluid af
                     Debug.Log("DoorActivator: Kan de deur niet openen. De grendel is nog niet losgehaald.");
                 }
             }
-            // Optionele functie: Als de deur al open is, sluit deze direct met E
+            // Handmatig sluiten
             else if (isDeurGeopend)
             {
-                 // Zorg ervoor dat de automatische sluiting wordt geannuleerd als we handmatig sluiten
                 CancelInvoke("SluitDeur"); 
                 SluitDeur();
             }
         }
     }
+
+    // Trigger Enter/Exit logica blijft hetzelfde...
 
     void OnTriggerEnter(Collider other)
     {
@@ -72,47 +78,50 @@ public class DoorActivator : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             spelerBijDeur = false;
-            // Als de speler weggaat terwijl de deur open is, sluit deze dan sneller
+            // Sneller sluiten als de speler weggaat
             if (isDeurGeopend)
             {
-                // Zorg dat er slechts één sluitcommando tegelijk loopt
                 CancelInvoke("SluitDeur");
-                Invoke("SluitDeur", sluitVertraging / 2f); // Sluit sneller als de speler weggaat
+                Invoke("SluitDeur", sluitVertraging / 2f);
             }
         }
     }
 
+
     void OpenDeur()
     {
         isDeurGeopend = true;
-        
-        // Annuleer eventuele geplande sluitingen
         CancelInvoke("SluitDeur");
         
-        // Zet de Bool parameter op TRUE (deur gaat open)
         if (animator != null)
         {
-            Debug.Log($"DoorActivator: Deur wordt geopend! Bool '{IsOpenParameterName}' wordt op TRUE gezet.");
             animator.SetBool(IsOpenParameterName, true);
         }
+        
+        // GELUID: Speel het open geluid af
+        if (audioSource != null && openGeluid != null)
+        {
+            audioSource.PlayOneShot(openGeluid);
+        }
 
-        // Plan het automatisch sluiten in na de volledige vertraging
         Invoke("SluitDeur", sluitVertraging);
     }
     
     void SluitDeur()
     {
-        // We sluiten alleen als de deur nog open is
         if (isDeurGeopend)
         {
             if (animator != null)
             {
-                // Zet de Bool parameter op FALSE (deur gaat dicht)
-                Debug.Log($"DoorActivator: Deur sluit automatisch! Bool '{IsOpenParameterName}' wordt op FALSE gezet.");
                 animator.SetBool(IsOpenParameterName, false);
             }
             
-            // Zet de staat terug op gesloten
+            // GELUID: Speel het sluit geluid af
+            if (audioSource != null && sluitGeluid != null)
+            {
+                audioSource.PlayOneShot(sluitGeluid);
+            }
+
             isDeurGeopend = false;
         }
     }
