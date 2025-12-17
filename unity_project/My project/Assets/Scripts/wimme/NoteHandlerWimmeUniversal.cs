@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class NoteHandler : MonoBehaviour
+public class NoteHandlerWimme : MonoBehaviour
 {
     public Canvas NoteCanvas;
     public TextMeshProUGUI NoteTextMesh;
@@ -11,7 +11,6 @@ public class NoteHandler : MonoBehaviour
     public string NoteText = null;
     public First_Person_Movement playerMovementScript;
     private bool ReadingNote = false;
-    
     void Update()
     {
         if (ReadingNote)
@@ -27,27 +26,29 @@ public class NoteHandler : MonoBehaviour
         }
 
         RaycastHit hit;
-        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, 4f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
+        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, 4f))
         {
-            if (hit.collider.gameObject.name == "Note")
+            if (hit.collider.gameObject == gameObject)
             {
-                if (itemOverlayCanvas != null && !ReadingNote)
-                {
-                    itemOverlayCanvas.enabled = true;
-                    itemLookedAtText.text = "Note";
-                }
-
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     if (!ReadingNote)
                     {
                         Debug.Log("Note geopend");
-                        if (playerMovementScript != null) playerMovementScript.enabled = false;
+                        if (playerMovementScript != null )playerMovementScript.enabled = false;
                         OpenNote();
                         ReadingNote = true; 
                     }
                     return;
                 }
+            }
+            else
+            {
+                if (itemOverlayCanvas != null)
+                {
+                    itemOverlayCanvas.enabled = false;
+                }
+                
             }
         }
 
