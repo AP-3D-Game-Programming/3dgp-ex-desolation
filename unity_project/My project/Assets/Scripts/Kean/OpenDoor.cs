@@ -47,6 +47,7 @@ public class OpenDoor : MonoBehaviour
             transform.rotation = endRotation;
             Debug.Log("Door Opened");
             DoorAlreadyOpened = true;
+            DoorCollider.enabled = false;
         }
         
     }

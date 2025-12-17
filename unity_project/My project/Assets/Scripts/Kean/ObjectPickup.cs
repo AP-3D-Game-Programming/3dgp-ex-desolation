@@ -15,38 +15,60 @@ public class ObjectPickup : MonoBehaviour
     public GameObject heldObj;
     private Rigidbody heldObjRb;
     private Collider heldObjCol;
+    private bool canPickup = false;
 
     void Update()
     {
         RaycastHit hit;
-        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, pickUpRange))
+        if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, pickUpRange, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore))
         {
             ChemicalItem itemScript = hit.collider.GetComponent<ChemicalItem>();
-            if (itemScript != null && heldObj == null && hit.distance <= 1.5 && hit.collider.gameObject.name != "Note")
+            if (hit.collider.gameObject.name != "Note" && hit.collider.gameObject.name != "door" && itemScript != null && heldObj == null && hit.distance <= 1.5f)
             {
                 itemOverlayCanvas.enabled = true;
-                itemLookedAtText.text = itemScript.substanceName;
+                itemLookedAtText.text = itemScript.substanceName + " (E)";
+                canPickup = true;
             }
-            if (itemScript == null && hit.collider.gameObject.name != "Note") itemOverlayCanvas.enabled = false;
-            
             if (Input.GetKeyDown(KeyCode.E))
-
             {
-                if (heldObj == null) TryPickUp(hit);
-                else 
+                if (canPickup && heldObj == null) 
                 {
-                    Collider objectCollider = heldObj.GetComponent<Collider>();
-                    if (objectCollider.bounds.Intersects(Door.GetComponent<Collider>().bounds))
+                    TryPickUp(hit);
+                    itemOverlayCanvas.enabled = false;
+                    return;
+                }
+                    else 
                     {
-                        Door.GetComponent<ChemicalLock>().AddChemical(heldObj.GetComponent<ChemicalItem>()); //Ophalen van ChemicalItem script
-                        return;
-                    }
-                    else DropObject();
-                };
+                        Collider objectCollider = heldObj.GetComponent<Collider>();
+                        if (objectCollider.bounds.Intersects(Door.GetComponent<Collider>().bounds))
+                        {
+                            Door.GetComponent<ChemicalLock>().AddChemical(heldObj.GetComponent<ChemicalItem>()); //Ophalen van ChemicalItem script
+                            return;
+                        }
+                        else DropObject();
+                    };
+                }
+            
+            if (itemScript == null && hit.collider.gameObject.name != "Note") 
+            {
+                itemOverlayCanvas.enabled = false;
             }
+            if (hit.collider.gameObject.name == "door" && hit.distance <= 1.5f)
+            {
+            if (Door.GetComponent<ChemicalLock>().DoorUnlocked)
+            {
+            itemOverlayCanvas.enabled = true;
+            itemLookedAtText.text = "Open (E)";
+            }
+            else if (!Door.GetComponent<ChemicalLock>().DoorUnlocked)
+            {
+                itemOverlayCanvas.enabled = true;
+                itemLookedAtText.text = "";
+            }
+            }
+            
+            
         }
-        
-
         // 2. INPUT: GOOIEN (Muisklik)
         if (heldObj != null && Input.GetMouseButtonDown(0))
         {
