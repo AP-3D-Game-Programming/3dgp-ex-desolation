@@ -7,7 +7,7 @@ public class ObjectPickup : MonoBehaviour
     public Transform playerCamera; // Je Camera
     public Transform holdPos;      // Het punt waar het object moet hangen
     public GameObject Door; 
-    public float pickUpRange = 1f;
+    public float pickUpRange = 5f;
     public float throwForce = 500f;
     [SerializeField] private TextMeshProUGUI itemLookedAtText;
     public Canvas itemOverlayCanvas;
@@ -22,12 +22,12 @@ public class ObjectPickup : MonoBehaviour
         if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, pickUpRange))
         {
             ChemicalItem itemScript = hit.collider.GetComponent<ChemicalItem>();
-            if (itemScript != null && heldObj == null)
+            if (itemScript != null && heldObj == null && hit.distance <= 1.5 && hit.collider.gameObject.name != "Note")
             {
                 itemOverlayCanvas.enabled = true;
                 itemLookedAtText.text = itemScript.substanceName;
             }
-            
+            if (itemScript == null && hit.collider.gameObject.name != "Note") itemOverlayCanvas.enabled = false;
             
             if (Input.GetKeyDown(KeyCode.E))
 
@@ -45,7 +45,7 @@ public class ObjectPickup : MonoBehaviour
                 };
             }
         }
-        else itemOverlayCanvas.enabled = false;
+        
 
         // 2. INPUT: GOOIEN (Muisklik)
         if (heldObj != null && Input.GetMouseButtonDown(0))
@@ -69,7 +69,7 @@ public class ObjectPickup : MonoBehaviour
     {
         // Schiet straal vanuit camera
             // Check of het object een Rigidbody heeft (anders kunnen we het niet pakken)
-            if (hit.transform.GetComponent<Rigidbody>())
+            if (hit.transform.GetComponent<Rigidbody>() != null)
             {
                 heldObj = hit.transform.gameObject;
                 Debug.Log("GEPAKT: " + heldObj.name);
