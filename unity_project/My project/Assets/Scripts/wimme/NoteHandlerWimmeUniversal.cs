@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class NoteHandler : MonoBehaviour
+public class NoteHandlerWimme : MonoBehaviour
 {
     public Canvas NoteCanvas;
     public TextMeshProUGUI NoteTextMesh;
@@ -11,7 +11,6 @@ public class NoteHandler : MonoBehaviour
     public string NoteText = null;
     public First_Person_Movement playerMovementScript;
     private bool ReadingNote = false;
-    
     void Update()
     {
         if (ReadingNote)
@@ -31,12 +30,6 @@ public class NoteHandler : MonoBehaviour
         {
             if (hit.collider.gameObject == gameObject)
             {
-                if (itemOverlayCanvas != null && !ReadingNote)
-                {
-                    itemOverlayCanvas.enabled = true;
-                    itemLookedAtText.text = "Note";
-                }
-
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     if (!ReadingNote)
