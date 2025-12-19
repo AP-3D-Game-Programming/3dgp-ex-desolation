@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Kean/5_chemlab_puzzle.unity
     guid: 3a109ab30c93932459f5b1c10ac0ac48
+  - enabled: 1
+    path: Assets/Scenes/Kean/6_Maintenance_Room.unity
+    guid: 7d45375580b7cd54db309c3b92e4228d
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
