@@ -95,7 +95,7 @@ public class RegularDoorOpenJumpscare : MonoBehaviour
                 isFirstTimeDoorUsed = false;
                 
                 // Wacht heel even zodat de Animator de 'BAM' state pakt voordat we de bool op false zetten
-                Invoke("DeactiveerFirstTime", 0.1f);
+                Invoke("DeactiveerFirstTime", 0.5f);
             }
             else
             {

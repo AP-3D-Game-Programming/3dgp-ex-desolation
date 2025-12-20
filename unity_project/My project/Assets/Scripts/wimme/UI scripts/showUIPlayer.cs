@@ -12,7 +12,6 @@ public class PlayerUIRaycaster : MonoBehaviour
     public Transform playerCamera; 
     public float interactieBereik = 3f; 
     
-    // Verander dit in de Inspector naar 'Everything' of selecteer beide layers (Interactable & Draggable)
     public LayerMask detectieLayers; 
 
     [Header("Horror Stijl Instellingen")]
@@ -23,35 +22,38 @@ public class PlayerUIRaycaster : MonoBehaviour
 
     void Update()
     {
-        // 1. Standaard UI (Canvas inclusief Crosshair) uitzetten
         itemOverlayCanvas.enabled = false;
 
         RaycastHit hit;
         string nieuweTekst = "";
         bool toonUI = false;
 
-        // 2. Raycast afvuren op de geselecteerde layers
+        // TEKEN EEN STRAAL IN DE SCENE VIEW (Alleen zichtbaar in de editor tijdens Play)
+        Debug.DrawRay(playerCamera.position, playerCamera.forward * interactieBereik, Color.red);
+
         if (Physics.Raycast(playerCamera.position, playerCamera.forward, out hit, interactieBereik, detectieLayers))
         {
-            // We kijken naar iets op de juiste layer, dus de crosshair mag aan
+            // DEBUG: Laat zien welk object geraakt wordt en op welke layer het zit
+            Debug.Log($"Raycast raakt: {hit.collider.gameObject.name} op Layer: {LayerMask.LayerToName(hit.collider.gameObject.layer)}");
+
             toonUI = true;
             itemOverlayCanvas.enabled = true;
 
-            // 3. Check of het object ook tekst heeft (IInteractable interface)
             IInteractable interactable = hit.collider.GetComponent<IInteractable>();
             if (interactable != null)
             {
                 nieuweTekst = interactable.GetInteractionText();
+                // DEBUG: Bevestig dat de interface gevonden is
+                Debug.Log("IInteractable component gevonden!");
             }
             else
             {
-                // Als het object wel op de layer zit (zoals een sleepbaar object) 
-                // maar geen script heeft, tonen we alleen de crosshair (tekst wordt leeg)
                 nieuweTekst = ""; 
+                // DEBUG: Waarschuwing als er geen script op zit
+                Debug.Log("Object geraakt, maar geen IInteractable script gevonden.");
             }
         }
         
-        // 4. Typemachine Logica voor de tekst
         HandleTypemachine(toonUI, nieuweTekst);
     }
 
