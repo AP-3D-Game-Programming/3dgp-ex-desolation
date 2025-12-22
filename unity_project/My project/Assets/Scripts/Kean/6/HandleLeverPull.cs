@@ -10,6 +10,8 @@ public class HandleLeverPull : MonoBehaviour
     public AudioSource ShortCircuitAudioSource;
     public AudioClip ShortCircuitSoundClip;
     private bool audioPlayed=false;
+    public GameObject ElevatorDoor;
+    public GameObject liftLight;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -38,6 +40,8 @@ public class HandleLeverPull : MonoBehaviour
             {
                 Destroy(lamp_lights[i]);
             }
+            Destroy(ElevatorDoor);
+            liftLight.SetActive(true);
         }
     }
 }
