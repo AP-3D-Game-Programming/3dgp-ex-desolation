@@ -1,6 +1,6 @@
 using TMPro;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class NoteHandler : MonoBehaviour
 {
     public Canvas NoteCanvas;
@@ -11,7 +11,22 @@ public class NoteHandler : MonoBehaviour
     public string NoteText = null;
     public First_Person_Movement playerMovementScript;
     private bool ReadingNote = false;
+
+    public string activeSceneName = "5_chemlab_puzzle";
     
+    void Awake()
+    {
+        // Controleer of de huidige scene de juiste is
+        if (SceneManager.GetActiveScene().name != activeSceneName)
+        {
+            this.enabled = false;
+        }
+        else
+        {
+            this.enabled = true;
+        }
+    }
+
     void Update()
     {
         if (ReadingNote)

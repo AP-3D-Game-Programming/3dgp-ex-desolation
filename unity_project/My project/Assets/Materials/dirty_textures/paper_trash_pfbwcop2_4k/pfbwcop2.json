@@ -1,0 +1,449 @@
+{
+    "averageColor": "#808080",
+    "categories": [
+        "atlas",
+        "debris"
+    ],
+    "description": "",
+    "environment": {
+        "biome": "mediterranean-forest",
+        "region": "Southeast Asia"
+    },
+    "id": "pfbwcop2",
+    "json": {
+        "uri": "pfbwcop2.json"
+    },
+    "meta": [
+        {
+            "key": "scanArea",
+            "name": "Scan Area",
+            "value": "0.41x0.41 m"
+        },
+        {
+            "key": "height",
+            "name": "Height",
+            "value": "0.012 m"
+        },
+        {
+            "key": "tileable",
+            "name": "Tileable",
+            "value": false
+        },
+        {
+            "key": "texelDensity",
+            "name": "Texel Density",
+            "value": "9917 px/m"
+        },
+        {
+            "key": "calibration",
+            "name": "Calibration",
+            "value": "GretagMacbeth ColorChecker Color Rendition Chart"
+        },
+        {
+            "key": "scanner",
+            "name": "Scanner",
+            "value": "PKM-MKIII 4-3"
+        }
+    ],
+    "name": "Paper Trash",
+    "points": 1,
+    "previews": {
+        "images": [
+            {
+                "contentLength": 4606645,
+                "resolution": "1760x1760",
+                "uri": "pfbwcop2_Preview_Retina.png",
+                "tags": [
+                    "preview",
+                    "retina"
+                ]
+            },
+            {
+                "contentLength": 818393,
+                "resolution": "720x720",
+                "uri": "pfbwcop2_Thumb_Retina.png",
+                "tags": [
+                    "thumb",
+                    "retina"
+                ]
+            }
+        ],
+        "relativeSize": "1x1"
+    },
+    "properties": [],
+    "references": [],
+    "semanticTags": {
+        "theme": [
+            "garbage",
+            "junk",
+            "dumpster"
+        ],
+        "name": "Paper Trash",
+        "subject_matter": "manmade",
+        "industry": [
+            "games",
+            "archviz",
+            "VFX"
+        ],
+        "contains": [
+            "Trash",
+            "Paper",
+            "Debris",
+            "newspaper"
+        ],
+        "state": [
+            "old",
+            "damaged"
+        ],
+        "locations": {
+            "Asia": {
+                "Pakistan": {}
+            }
+        },
+        "minSize": 0.41,
+        "interior_exterior": [
+            "exterior"
+        ],
+        "maxSize": 0.41,
+        "architectural_style": {},
+        "3d_mesh": [],
+        "resolution": 4096,
+        "asset_type": "atlas",
+        "orientation": [
+            "floor"
+        ],
+        "country": "Pakistan",
+        "region": "Asia",
+        "color": [
+            "Brown",
+            "Gray"
+        ],
+        "descriptive": [
+            "old",
+            "damaged",
+            "scrapped",
+            "dirty",
+            "rotten"
+        ],
+        "environment": [
+            "urban",
+            "rural"
+        ]
+    },
+    "tags": [
+        "paper",
+        "trash",
+        "pile"
+    ],
+    "version": 2,
+    "maps": [
+        {
+            "averageColor": "#848484",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 0,
+            "name": "Opacity",
+            "type": "opacity",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pfbwcop2_4K_Opacity.exr"
+        },
+        {
+            "averageColor": "#848484",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 0,
+            "name": "Opacity",
+            "type": "opacity",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pfbwcop2_4K_Opacity.jpg"
+        },
+        {
+            "averageColor": "#7F7EF8",
+            "colorSpace": "Linear",
+            "maxIntensity": 168,
+            "minIntensity": 111,
+            "name": "Normal",
+            "type": "normal",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 16,
+            "mimeType": "image/x-exr",
+            "uri": "pfbwcop2_4K_Normal.exr"
+        },
+        {
+            "averageColor": "#7F7EF8",
+            "colorSpace": "Linear",
+            "maxIntensity": 168,
+            "minIntensity": 111,
+            "name": "Normal",
+            "type": "normal",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pfbwcop2_4K_Normal.jpg"
+        },
+        {
+            "averageColor": "#808080",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 0,
+            "name": "Bump",
+            "type": "bump",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pfbwcop2_4K_Bump.exr"
+        },
+        {
+            "averageColor": "#808080",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 0,
+            "name": "Bump",
+            "type": "bump",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pfbwcop2_4K_Bump.jpg"
+        },
+        {
+            "averageColor": "#363636",
+            "colorSpace": "Linear",
+            "maxIntensity": 71,
+            "minIntensity": 32,
+            "name": "Gloss",
+            "type": "gloss",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pfbwcop2_4K_Gloss.exr"
+        },
+        {
+            "averageColor": "#363636",
+            "colorSpace": "Linear",
+            "maxIntensity": 71,
+            "minIntensity": 32,
+            "name": "Gloss",
+            "type": "gloss",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pfbwcop2_4K_Gloss.jpg"
+        },
+        {
+            "averageColor": "#808080",
+            "colorSpace": "Linear",
+            "maxIntensity": 158,
+            "minIntensity": 98,
+            "name": "Displacement",
+            "type": "displacement",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pfbwcop2_4K_Displacement.exr"
+        },
+        {
+            "averageColor": "#808080",
+            "colorSpace": "Linear",
+            "maxIntensity": 158,
+            "minIntensity": 98,
+            "name": "Displacement",
+            "type": "displacement",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pfbwcop2_4K_Displacement.jpg"
+        },
+        {
+            "averageColor": "#E5E5E5",
+            "colorSpace": "sRGB",
+            "maxIntensity": 255,
+            "minIntensity": 177,
+            "name": "Ao",
+            "type": "ao",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pfbwcop2_4K_AO.exr"
+        },
+        {
+            "averageColor": "#E5E5E5",
+            "colorSpace": "sRGB",
+            "maxIntensity": 255,
+            "minIntensity": 177,
+            "name": "Ao",
+            "type": "ao",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pfbwcop2_4K_AO.jpg"
+        },
+        {
+            "averageColor": "#C9C9C9",
+            "colorSpace": "Linear",
+            "maxIntensity": 223,
+            "minIntensity": 184,
+            "name": "Roughness",
+            "type": "roughness",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pfbwcop2_4K_Roughness.exr"
+        },
+        {
+            "averageColor": "#C9C9C9",
+            "colorSpace": "Linear",
+            "maxIntensity": 223,
+            "minIntensity": 184,
+            "name": "Roughness",
+            "type": "roughness",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pfbwcop2_4K_Roughness.jpg"
+        },
+        {
+            "averageColor": "#FFFFFF",
+            "colorSpace": "sRGB",
+            "maxIntensity": 255,
+            "minIntensity": 255,
+            "name": "Cavity",
+            "type": "cavity",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "pfbwcop2_4K_Cavity.exr"
+        },
+        {
+            "averageColor": "#FFFFFF",
+            "colorSpace": "sRGB",
+            "maxIntensity": 255,
+            "minIntensity": 255,
+            "name": "Cavity",
+            "type": "cavity",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pfbwcop2_4K_Cavity.jpg"
+        },
+        {
+            "averageColor": "#383838",
+            "colorSpace": "sRGB",
+            "maxIntensity": 56,
+            "minIntensity": 56,
+            "name": "Specular",
+            "type": "specular",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 16,
+            "mimeType": "image/x-exr",
+            "uri": "pfbwcop2_4K_Specular.exr"
+        },
+        {
+            "averageColor": "#383838",
+            "colorSpace": "sRGB",
+            "maxIntensity": 56,
+            "minIntensity": 56,
+            "name": "Specular",
+            "type": "specular",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pfbwcop2_4K_Specular.jpg"
+        },
+        {
+            "averageColor": "#241A0E",
+            "colorSpace": "sRGB",
+            "maxIntensity": 79,
+            "minIntensity": 0,
+            "name": "Translucency",
+            "type": "translucency",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 16,
+            "mimeType": "image/x-exr",
+            "uri": "pfbwcop2_4K_Translucency.exr"
+        },
+        {
+            "averageColor": "#241A0E",
+            "colorSpace": "sRGB",
+            "maxIntensity": 79,
+            "minIntensity": 0,
+            "name": "Translucency",
+            "type": "translucency",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pfbwcop2_4K_Translucency.jpg"
+        },
+        {
+            "averageColor": "#95886C",
+            "colorSpace": "sRGB",
+            "maxIntensity": 200,
+            "minIntensity": 92,
+            "name": "Albedo",
+            "type": "albedo",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 16,
+            "mimeType": "image/x-exr",
+            "uri": "pfbwcop2_4K_Albedo.exr"
+        },
+        {
+            "averageColor": "#95886C",
+            "colorSpace": "sRGB",
+            "maxIntensity": 200,
+            "minIntensity": 92,
+            "name": "Albedo",
+            "type": "albedo",
+            "physicalSize": "0.41x0.41",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "pfbwcop2_4K_Albedo.jpg"
+        }
+    ],
+    "texelDensity": 9990,
+    "physicalSize": "0.41x0.41",
+    "displacementScale": 1.43795,
+    "displacementBias": 0.54267,
+    "displacementCalibrationAccuracy": 0.985735,
+    "process_date": "2024-04-17 20:44:33",
+    "texture_type": "basic",
+    "highest_available_res": 4096,
+    "models": [],
+    "assetCategories": {
+        "atlas": {
+            "debris": {
+                "paper": {},
+                "trash": {}
+            }
+        }
+    },
+    "pack": {
+        "_id": "paper-trash",
+        "name": "Paper Trash"
+    },
+    "comp_version": 1
+}

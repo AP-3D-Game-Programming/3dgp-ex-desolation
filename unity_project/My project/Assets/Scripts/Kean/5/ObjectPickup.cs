@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class ObjectPickup : MonoBehaviour
 {
@@ -16,6 +17,19 @@ public class ObjectPickup : MonoBehaviour
     private Rigidbody heldObjRb;
     private Collider heldObjCol;
     private bool canPickup = false;
+    public string activeSceneName = "5_chemlab_puzzle";
+
+    void Awake()
+    {
+        if (SceneManager.GetActiveScene().name != activeSceneName)
+        {
+            this.enabled = false;
+        }
+        else
+        {
+            this.enabled = true;
+        }
+    }
 
     void Update()
     {
