@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: f89242e9ac087994690433f1909cd59d
+timeCreated: 1576480019
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 74888
+  packageName: Industrial Vacuum Cleaner
+  packageVersion: 1.0
+  assetPath: Assets/VacuumCleaner/Materials/VacuumCleaner.mat
+  uploadId: 369626

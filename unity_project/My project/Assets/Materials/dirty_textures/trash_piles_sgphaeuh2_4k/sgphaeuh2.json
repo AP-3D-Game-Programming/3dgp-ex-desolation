@@ -1,0 +1,434 @@
+{
+    "averageColor": "#808080",
+    "categories": [
+        "atlas",
+        "debris",
+        "trash"
+    ],
+    "environment": {
+        "biome": "undefined",
+        "region": "South West Australia"
+    },
+    "id": "sgphaeuh2",
+    "meta": [
+        {
+            "key": "scanArea",
+            "name": "Scan Area",
+            "value": "0.4x0.4 m"
+        },
+        {
+            "key": "height",
+            "name": "Height",
+            "value": "0.021 m"
+        },
+        {
+            "key": "tileable",
+            "name": "Tileable",
+            "value": false
+        },
+        {
+            "key": "texelDensity",
+            "name": "Texel Density",
+            "value": "10185 px/m"
+        },
+        {
+            "key": "calibration",
+            "name": "Calibration",
+            "value": "X-Rite ColorChecker Classic"
+        },
+        {
+            "key": "scanner",
+            "name": "Scanner",
+            "value": "AUM-MKII-Stable-V2-Yellow"
+        }
+    ],
+    "name": "Trash Piles",
+    "points": 1,
+    "previews": {
+        "images": [
+            {
+                "contentLength": 815818,
+                "resolution": "840x840",
+                "uri": "sgphaeuh2_Grid_840.png",
+                "tags": [
+                    "thumb",
+                    "retina"
+                ]
+            },
+            {
+                "contentLength": 3092915,
+                "resolution": "1760x1760",
+                "uri": "sgphaeuh2_Popup_1760.png",
+                "tags": [
+                    "preview",
+                    "retina"
+                ]
+            }
+        ],
+        "relativeSize": "1x1"
+    },
+    "properties": [],
+    "tags": [
+        "garbage",
+        "rubbish",
+        "waste",
+        "piles"
+    ],
+    "version": 2,
+    "maps": [
+        {
+            "averageColor": "#585858",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 0,
+            "name": "Opacity",
+            "type": "opacity",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "sgphaeuh2_4K_Opacity.exr"
+        },
+        {
+            "averageColor": "#585858",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 0,
+            "name": "Opacity",
+            "type": "opacity",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "sgphaeuh2_4K_Opacity.jpg"
+        },
+        {
+            "averageColor": "#8080FA",
+            "colorSpace": "Linear",
+            "maxIntensity": 194,
+            "minIntensity": 84,
+            "name": "Normal",
+            "type": "normal",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 16,
+            "mimeType": "image/x-exr",
+            "uri": "sgphaeuh2_4K_Normal.exr"
+        },
+        {
+            "averageColor": "#8080FA",
+            "colorSpace": "Linear",
+            "maxIntensity": 194,
+            "minIntensity": 84,
+            "name": "Normal",
+            "type": "normal",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "sgphaeuh2_4K_Normal.jpg"
+        },
+        {
+            "averageColor": "#808080",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 0,
+            "name": "Bump",
+            "type": "bump",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "sgphaeuh2_4K_Bump.exr"
+        },
+        {
+            "averageColor": "#808080",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 0,
+            "name": "Bump",
+            "type": "bump",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "sgphaeuh2_4K_Bump.jpg"
+        },
+        {
+            "averageColor": "#202020",
+            "colorSpace": "Linear",
+            "maxIntensity": 92,
+            "minIntensity": 0,
+            "name": "Gloss",
+            "type": "gloss",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "sgphaeuh2_4K_Gloss.exr"
+        },
+        {
+            "averageColor": "#202020",
+            "colorSpace": "Linear",
+            "maxIntensity": 92,
+            "minIntensity": 0,
+            "name": "Gloss",
+            "type": "gloss",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "sgphaeuh2_4K_Gloss.jpg"
+        },
+        {
+            "averageColor": "#828282",
+            "colorSpace": "Linear",
+            "maxIntensity": 187,
+            "minIntensity": 81,
+            "name": "Displacement",
+            "type": "displacement",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "sgphaeuh2_4K_Displacement.exr"
+        },
+        {
+            "averageColor": "#828282",
+            "colorSpace": "Linear",
+            "maxIntensity": 187,
+            "minIntensity": 81,
+            "name": "Displacement",
+            "type": "displacement",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "sgphaeuh2_4K_Displacement.jpg"
+        },
+        {
+            "averageColor": "#EFEFEF",
+            "colorSpace": "sRGB",
+            "maxIntensity": 255,
+            "minIntensity": 179,
+            "name": "AO",
+            "type": "ao",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "sgphaeuh2_4K_AO.exr"
+        },
+        {
+            "averageColor": "#EFEFEF",
+            "colorSpace": "sRGB",
+            "maxIntensity": 255,
+            "minIntensity": 179,
+            "name": "AO",
+            "type": "ao",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "sgphaeuh2_4K_AO.jpg"
+        },
+        {
+            "averageColor": "#DFDFDF",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 163,
+            "name": "Roughness",
+            "type": "roughness",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "sgphaeuh2_4K_Roughness.exr"
+        },
+        {
+            "averageColor": "#DFDFDF",
+            "colorSpace": "Linear",
+            "maxIntensity": 255,
+            "minIntensity": 163,
+            "name": "Roughness",
+            "type": "roughness",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "sgphaeuh2_4K_Roughness.jpg"
+        },
+        {
+            "averageColor": "#F4F4F4",
+            "colorSpace": "sRGB",
+            "maxIntensity": 255,
+            "minIntensity": 203,
+            "name": "Cavity",
+            "type": "cavity",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 32,
+            "mimeType": "image/x-exr",
+            "uri": "sgphaeuh2_4K_Cavity.exr"
+        },
+        {
+            "averageColor": "#F4F4F4",
+            "colorSpace": "sRGB",
+            "maxIntensity": 255,
+            "minIntensity": 203,
+            "name": "Cavity",
+            "type": "cavity",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "sgphaeuh2_4K_Cavity.jpg"
+        },
+        {
+            "averageColor": "#353535",
+            "colorSpace": "sRGB",
+            "maxIntensity": 44.66,
+            "minIntensity": 56.1,
+            "name": "Specular",
+            "type": "specular",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 16,
+            "mimeType": "image/x-exr",
+            "uri": "sgphaeuh2_4K_Specular.exr"
+        },
+        {
+            "averageColor": "#353535",
+            "colorSpace": "sRGB",
+            "maxIntensity": 44.66,
+            "minIntensity": 56.1,
+            "name": "Specular",
+            "type": "specular",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "sgphaeuh2_4K_Specular.jpg"
+        },
+        {
+            "averageColor": "#1A1410",
+            "colorSpace": "sRGB",
+            "maxIntensity": 172,
+            "minIntensity": 0,
+            "name": "Translucency",
+            "type": "translucency",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 16,
+            "mimeType": "image/x-exr",
+            "uri": "sgphaeuh2_4K_Translucency.exr"
+        },
+        {
+            "averageColor": "#1A1410",
+            "colorSpace": "sRGB",
+            "maxIntensity": 172,
+            "minIntensity": 0,
+            "name": "Translucency",
+            "type": "translucency",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "sgphaeuh2_4K_Translucency.jpg"
+        },
+        {
+            "averageColor": "#928573",
+            "colorSpace": "sRGB",
+            "maxIntensity": 235,
+            "minIntensity": 18,
+            "name": "Albedo",
+            "type": "albedo",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 16,
+            "mimeType": "image/x-exr",
+            "uri": "sgphaeuh2_4K_Albedo.exr"
+        },
+        {
+            "averageColor": "#928573",
+            "colorSpace": "sRGB",
+            "maxIntensity": 235,
+            "minIntensity": 18,
+            "name": "Albedo",
+            "type": "albedo",
+            "physicalSize": "0.4x0.4",
+            "resolution": "4096x4096",
+            "bitDepth": 8,
+            "mimeType": "image/jpeg",
+            "uri": "sgphaeuh2_4K_Albedo.jpg"
+        }
+    ],
+    "texelDensity": 10240,
+    "physicalSize": "0.4x0.4",
+    "displacementScale": 1.804921,
+    "displacementBias": 0.457482,
+    "displacementCalibrationAccuracy": 0.968042,
+    "process_date": "2024-04-17 15:55:45",
+    "texture_type": "basic",
+    "highest_available_res": 4096,
+    "models": [],
+    "semanticTags": {
+        "environment": [
+            "urban",
+            "industrial"
+        ],
+        "theme": [
+            "trash",
+            " garbage",
+            "rubbish",
+            "waste",
+            "piles"
+        ],
+        "name": "Trash Piles",
+        "subject_matter": "manmade",
+        "industry": [
+            "games",
+            "VFX"
+        ],
+        "contains": [
+            "paper",
+            "fabric",
+            "metal",
+            "wood"
+        ],
+        "state": [
+            "old",
+            "damaged"
+        ],
+        "locations": {
+            "Global": {
+                "Global": {}
+            }
+        },
+        "minSize": 0.4,
+        "maxSize": 0.4,
+        "latin_name": [],
+        "architectural_style": {},
+        "interior_exterior": [
+            "exterior",
+            "interior"
+        ],
+        "resolution": 4096,
+        "asset_type": "atlas",
+        "orientation": [
+            "floor"
+        ]
+    },
+    "assetCategories": {
+        "atlas": {
+            "debris": {
+                "trash": {}
+            }
+        }
+    },
+    "pack": {
+        "_id": "middle-eastern-mountain-village",
+        "name": "Middle-Eastern Mountain Village"
+    },
+    "comp_version": 1
+}

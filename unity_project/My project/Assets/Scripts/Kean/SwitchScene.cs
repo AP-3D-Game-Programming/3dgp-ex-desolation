@@ -12,10 +12,7 @@ private void OnTriggerEnter(Collider other)
 
     void LoadNextLevel()
     {
-        // Huidige index ophalen (bijv. Scene 0)
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        
-        // De volgende laden (Scene 0 + 1 = Scene 1)
         SceneManager.LoadScene(currentSceneIndex + 1);
     }
 }

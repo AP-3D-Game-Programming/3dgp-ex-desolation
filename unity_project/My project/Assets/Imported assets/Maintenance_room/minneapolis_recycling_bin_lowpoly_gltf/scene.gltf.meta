@@ -1,0 +1,38 @@
+fileFormatVersion: 2
+guid: 7cade78f1df6f594d9bb6c8bc13f349a
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 715df9372183c47e389bb6e19fbc3b52, type: 3}
+  editorImportSettings:
+    generateSecondaryUVSet: 0
+  importSettings:
+    nodeNameMethod: 1
+    animationMethod: 2
+    generateMipMaps: 1
+    texturesReadable: 0
+    defaultMinFilterMode: 9729
+    defaultMagFilterMode: 9729
+    anisotropicFilterLevel: 1
+  instantiationSettings:
+    mask: -1
+    layer: 0
+    skinUpdateWhenOffscreen: 1
+    lightIntensityFactor: 1
+    sceneObjectCreation: 2
+  assetDependencies:
+  - type: 0
+    originalUri: Assets\Imported assets\Maintenance_room\minneapolis_recycling_bin_lowpoly_gltf\scene.bin
+    assetPath: Assets\Imported assets\Maintenance_room\minneapolis_recycling_bin_lowpoly_gltf\scene.bin
+  - type: 1
+    originalUri: Assets\Imported assets\Maintenance_room\minneapolis_recycling_bin_lowpoly_gltf\textures\Recyclenew_Baked_baseColor.png
+    assetPath: Assets\Imported assets\Maintenance_room\minneapolis_recycling_bin_lowpoly_gltf\textures\Recyclenew_Baked_baseColor.png
+  reportItems:
+  - type: 2
+    code: 20
+    messages:
+    - KHR_materials_specular
