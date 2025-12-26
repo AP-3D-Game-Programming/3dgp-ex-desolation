@@ -26,6 +26,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Wimme/7_containment.unity
     guid: 5f575c97d1a78224d96af222160a419a
+  - enabled: 1
+    path: Assets/Scenes/Angeles/2_AdminWing_Hall.unity
+    guid: 9277b3d6ea2cd49418e89af00f988c7b
+  - enabled: 1
+    path: Assets/Scenes/Angeles/2_Office_Observation.unity
+    guid: f98df463ddbd64449b2c4da08e131599
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
