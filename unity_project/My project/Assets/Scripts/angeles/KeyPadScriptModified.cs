@@ -7,15 +7,15 @@ using UnityEngine.SceneManagement;
 
 public class KeyPadScriptModified : MonoBehaviour
 {
-    [Header("1. SETUP")]
-    public GameObject Screen; // DRAG YOUR TEXT OBJECT HERE AGAIN!
-    public string nextSceneName = "3_Biolab"; 
-    
-    [Header("2. CODE SETTINGS")]
-    public string CorrectCode = "1984"; 
+    [Header("1. UI & Objects")]
+    public GameObject Screen;
+    public GameObject crosshair;
+
+    [Header("2. Settings")]
+    public string nextSceneName = "Level2"; 
+    public string CorrectCode = "1234"; 
     public int CodeLength = 4;
 
-    // Internal variables
     private int[] currentInput;
     private int pressesCount = 0;
     private bool isCodeCorrect = false;
@@ -23,71 +23,72 @@ public class KeyPadScriptModified : MonoBehaviour
     void Start()
     {
         currentInput = new int[CodeLength];
+        if (crosshair != null) crosshair.SetActive(false);
     }
 
     void Update()
     {
-        // --- UPDATE SCREEN TEXT ---
+        // Screen Logic
         if (Screen != null)
         {
             string textToShow = "";
-            for(int i=0; i < pressesCount; i++) {
-                textToShow += currentInput[i].ToString();
-            }
-            
+            for(int i=0; i < pressesCount; i++) textToShow += currentInput[i].ToString();
             var tmp = Screen.GetComponent<TextMeshPro>();
-            if (tmp != null) 
-            {
-                if(isCodeCorrect) tmp.text = "OPEN";
-                else tmp.text = textToShow;
-            }
+            if (tmp != null) tmp.text = isCodeCorrect ? "OPEN" : textToShow;
         }
 
-        // --- INTERACTION ---
-        if (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E))
-        {
-            HandleInteraction();
-        }
-    }
-
-    void HandleInteraction()
-    {
+        // --- HOVER LOGIC ---
+        // 1. Create a "LayerMask" to ignore the Player (Layer 2 is typically Ignore Raycast)
+        // Note: For now we just shoot normal rays.
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
+        bool isHovering = false;
 
         if (Physics.Raycast(ray, out hit, 5))
         {
-            Debug.Log("I HIT: " + hit.transform.name); // <--- READ THIS IN CONSOLE
-
-            // 1. CHECK IF WE HIT A BUTTON
-            Number hitNumber = hit.transform.GetComponent<Number>();
-            if (hitNumber != null)
+            // Check for Button
+            if (hit.transform.GetComponent<Number>() != null)
             {
-                if (pressesCount < CodeLength && !isCodeCorrect)
-                {
-                    Debug.Log("Button Pressed: " + hitNumber.number);
-                    currentInput[pressesCount] = hitNumber.number;
-                    pressesCount++;
-                    CheckCode();
-                }
-                return; // Stop here if we hit a button
+                isHovering = true;
+                // DEBUG: Uncomment the line below if you want to see what button triggers it
+                // Debug.Log("Crosshair ON because of Number: " + hit.transform.name);
             }
-
-            // 2. CHECK IF WE HIT THE DOOR (Look for Tag "ExitDoor")
-            if (hit.transform.CompareTag("ExitDoor"))
+            // Check for Door
+            else if (hit.transform.CompareTag("ExitDoor"))
             {
-                if (isCodeCorrect)
-                {
-                    Debug.Log("DOOR UNLOCKED! LOADING SCENE...");
-                    SceneManager.LoadScene(nextSceneName);
-                }
-                else
-                {
-                    Debug.Log("DOOR IS LOCKED. FINISH THE CODE FIRST.");
-                    // If you see this message when clicking a button, 
-                    // YOUR DOOR COLLIDER IS BLOCKING THE BUTTONS!
-                }
+                isHovering = true;
+                // THIS IS THE SNITCH LINE:
+                Debug.Log("Crosshair ON because I see 'ExitDoor' tag on: " + hit.transform.name);
             }
+        }
+
+        // Set Crosshair
+        if (crosshair != null) crosshair.SetActive(isHovering);
+
+        // Click Logic
+        if (isHovering && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)))
+        {
+            HandleInteraction(hit);
+        }
+    }
+
+    void HandleInteraction(RaycastHit hit)
+    {
+        Number hitNumber = hit.transform.GetComponent<Number>();
+        if (hitNumber != null)
+        {
+            if (pressesCount < CodeLength && !isCodeCorrect)
+            {
+                currentInput[pressesCount] = hitNumber.number;
+                pressesCount++;
+                CheckCode();
+            }
+            return; 
+        }
+
+        if (hit.transform.CompareTag("ExitDoor") && isCodeCorrect)
+        {
+            SceneManager.LoadScene(nextSceneName);
         }
     }
 
@@ -98,17 +99,8 @@ public class KeyPadScriptModified : MonoBehaviour
             string result = "";
             for(int i=0; i < pressesCount; i++) result += currentInput[i].ToString();
 
-            if (result == CorrectCode)
-            {
-                Debug.Log("CODE CORRECT!");
-                isCodeCorrect = true;
-            }
-            else
-            {
-                Debug.Log("WRONG CODE. RESETTING.");
-                pressesCount = 0;
-                Array.Clear(currentInput, 0, CodeLength);
-            }
+            if (result == CorrectCode) isCodeCorrect = true;
+            else { pressesCount = 0; Array.Clear(currentInput, 0, CodeLength); }
         }
     }
 }
