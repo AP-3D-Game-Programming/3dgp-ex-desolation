@@ -1208,7 +1208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b75b1dd520864c41abbbb09186e4415, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::SimpleExitDoor
-  sceneIndex: 6
+  sceneIndex: 2
   targetSpawnID: 1
   range: 3
 --- !u!1 &465208452
