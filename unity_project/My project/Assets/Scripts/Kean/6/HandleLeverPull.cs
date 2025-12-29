@@ -12,7 +12,10 @@ public class HandleLeverPull : MonoBehaviour
     private bool audioPlayed=false;
     public GameObject ElevatorDoor;
     public GameObject liftLight;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+
+    public GameObject VoiceLineTrigger2;
+    public GameObject VoiceLineTrigger3;
+
     void Awake()
     {
         if (SceneManager.GetActiveScene().name != activeSceneName)
@@ -42,6 +45,10 @@ public class HandleLeverPull : MonoBehaviour
             }
             Destroy(ElevatorDoor);
             liftLight.SetActive(true);
+            VoiceLineTrigger2.SetActive(true);
+            VoiceLineTrigger3.SetActive(true);
+            
         }
     }
+
 }
