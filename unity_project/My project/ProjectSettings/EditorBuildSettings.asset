@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/SampleScene.unity
     guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
+    path: Assets/Scenes/Angeles/0_MainMenu.unity
+    guid: c84e321408aa027438dd688c24ac66ed
+  - enabled: 0
     path: Assets/Scenes/0_MainMenu.unity
     guid: 63e22a5f3b112984e92d571553131f64
   - enabled: 0
@@ -35,6 +38,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Wimme/7_containment.unity
     guid: 5f575c97d1a78224d96af222160a419a
+  - enabled: 1
+    path: Assets/Scenes/Angeles/8_Ending_Sequence.unity
+    guid: cfad393f94d5d6648b4c3d7c214196f0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
