@@ -4565,7 +4565,7 @@ PrefabInstance:
       objectReference: {fileID: 166900496}
     - target: {fileID: 7180855258625915328, guid: 3746a92b9db103d4883100bbd4232c72, type: 3}
       propertyPath: Correct
-      value: 4976
+      value: 4967
       objectReference: {fileID: 0}
     - target: {fileID: 7180855258625915330, guid: 3746a92b9db103d4883100bbd4232c72, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -9380,6 +9380,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863393521}
     m_Modifications:
+    - target: {fileID: 3243592458355493449, guid: 5d1dfc82e449f094ca46791c53bd6cee, type: 3}
+      propertyPath: voiceLine
+      value: 
+      objectReference: {fileID: 8300000, guid: ddbe807fcd771704985958d456969410, type: 3}
     - target: {fileID: 4120149090313602826, guid: 5d1dfc82e449f094ca46791c53bd6cee, type: 3}
       propertyPath: m_Name
       value: vcl3
@@ -10963,6 +10967,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863393521}
     m_Modifications:
+    - target: {fileID: 3243592458355493449, guid: 5d1dfc82e449f094ca46791c53bd6cee, type: 3}
+      propertyPath: voiceLine
+      value: 
+      objectReference: {fileID: 8300000, guid: 8009ee649d90c4345a66a00d835d4578, type: 3}
     - target: {fileID: 4120149090313602826, guid: 5d1dfc82e449f094ca46791c53bd6cee, type: 3}
       propertyPath: m_Name
       value: voiceline2
@@ -18394,6 +18402,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 863393521}
     m_Modifications:
+    - target: {fileID: 3243592458355493449, guid: 5d1dfc82e449f094ca46791c53bd6cee, type: 3}
+      propertyPath: voiceLine
+      value: 
+      objectReference: {fileID: 8300000, guid: c11b04e7010a3b141af487c6480c91ee, type: 3}
     - target: {fileID: 4120149090313602826, guid: 5d1dfc82e449f094ca46791c53bd6cee, type: 3}
       propertyPath: m_Name
       value: voiceline1
