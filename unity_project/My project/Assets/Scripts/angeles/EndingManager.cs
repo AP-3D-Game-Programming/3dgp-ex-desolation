@@ -107,11 +107,11 @@ public class EndingManager : MonoBehaviour
         musicSource.Play();
 
         // 5. Wait 10 seconds (let credits roll)
-        yield return new WaitForSeconds(10f); 
+        //yield return new WaitForSeconds(10f); 
 
         // 6. Cut back to pure black
-        endingImageDisplay.gameObject.SetActive(false); 
-        creditsObject.SetActive(false);
+        //endingImageDisplay.gameObject.SetActive(false); 
+        //creditsObject.SetActive(false);
     }
 
     void DisablePlayerControls()
