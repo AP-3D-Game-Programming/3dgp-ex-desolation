@@ -17107,6 +17107,14 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1321010876155305032, guid: aff03539f9f26274a8f595b7feffd12b, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1258170493}
+    - target: {fileID: 1321010876155305032, guid: aff03539f9f26274a8f595b7feffd12b, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3267531482212136989, guid: aff03539f9f26274a8f595b7feffd12b, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.04
@@ -20212,6 +20220,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 2.4169083, y: 1.6343035, z: 2.4199867}
   m_Center: {x: -0.0021043427, y: 0.81715167, z: 0.0026612037}
+--- !u!20 &1258170493 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 7515287617015061825, guid: aff03539f9f26274a8f595b7feffd12b, type: 3}
+  m_PrefabInstance: {fileID: 1053158413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1260674630 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6c666bc4d520f624084cd01512e697f9, type: 3}
