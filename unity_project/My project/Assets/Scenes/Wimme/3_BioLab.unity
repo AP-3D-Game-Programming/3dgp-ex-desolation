@@ -21394,6 +21394,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6511816078699245721, guid: 3e01d2cc2cd99784eabfbca944e0eb50, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6511816078699245721, guid: 3e01d2cc2cd99784eabfbca944e0eb50, type: 3}
       propertyPath: m_fontColor.b
       value: 0.106308244
       objectReference: {fileID: 0}
@@ -21408,6 +21412,14 @@ PrefabInstance:
     - target: {fileID: 6511816078699245721, guid: 3e01d2cc2cd99784eabfbca944e0eb50, type: 3}
       propertyPath: m_fontSizeBase
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6511816078699245721, guid: 3e01d2cc2cd99784eabfbca944e0eb50, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6511816078699245721, guid: 3e01d2cc2cd99784eabfbca944e0eb50, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7597805757886890666, guid: 3e01d2cc2cd99784eabfbca944e0eb50, type: 3}
       propertyPath: 'm_Materials.Array.data[0]'
@@ -21905,11 +21917,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 761043760605510932, guid: 958c4ba01cb9d6b43803e47df1f31c8a, type: 3}
       propertyPath: m_fontSize
-      value: 14
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 761043760605510932, guid: 958c4ba01cb9d6b43803e47df1f31c8a, type: 3}
       propertyPath: m_fontSizeBase
-      value: 14
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 761043760605510932, guid: 958c4ba01cb9d6b43803e47df1f31c8a, type: 3}
       propertyPath: m_enableAutoSizing
@@ -21918,6 +21930,14 @@ PrefabInstance:
     - target: {fileID: 2934462365007050650, guid: 958c4ba01cb9d6b43803e47df1f31c8a, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720059653182852791, guid: 958c4ba01cb9d6b43803e47df1f31c8a, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3720059653182852791, guid: 958c4ba01cb9d6b43803e47df1f31c8a, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 14.9
       objectReference: {fileID: 0}
     - target: {fileID: 3906256400008862451, guid: 958c4ba01cb9d6b43803e47df1f31c8a, type: 3}
       propertyPath: m_LocalPosition.x
