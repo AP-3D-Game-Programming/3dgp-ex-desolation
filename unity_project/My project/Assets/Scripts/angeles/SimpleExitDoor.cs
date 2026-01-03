@@ -10,19 +10,50 @@ public class SimpleExitDoor : MonoBehaviour
     [Header("Interaction")]
     public float range = 3f;
 
+    [Header("UI Settings")]
+    [Tooltip("Drag your Text object or Canvas Group here")]
+    public GameObject promptUI; // <--- Drag your "[E] Enter" text here
+
+    void Start()
+    {
+        // Make sure the text is hidden when the game starts
+        if (promptUI != null) promptUI.SetActive(false);
+    }
+
     void Update()
     {
-        if (Vector3.Distance(transform.position, Camera.main.transform.position) <= range)
+        // Check distance
+        float dist = Vector3.Distance(transform.position, Camera.main.transform.position);
+
+        if (dist <= range)
         {
+            // Player is CLOSE: Show the UI
+            if (promptUI != null && !promptUI.activeSelf) 
+            {
+                promptUI.SetActive(true);
+            }
+
+            // Check for input
             if (Input.GetKeyDown(KeyCode.E))
             {
-                // SAVE the Spawn ID so the next scene can read it
-                PlayerPrefs.SetInt("NextSpawnID", targetSpawnID);
-                
-                Debug.Log("Loading Scene " + sceneIndex + " at SpawnPoint " + targetSpawnID);
-                SceneManager.LoadScene(sceneIndex);
+                EnterDoor();
             }
         }
+        else
+        {
+            // Player is FAR: Hide the UI
+            if (promptUI != null && promptUI.activeSelf) 
+            {
+                promptUI.SetActive(false);
+            }
+        }
+    }
+
+    void EnterDoor()
+    {
+        PlayerPrefs.SetInt("NextSpawnID", targetSpawnID);
+        Debug.Log("Loading Scene " + sceneIndex + " at SpawnPoint " + targetSpawnID);
+        SceneManager.LoadScene(sceneIndex);
     }
 
     void OnDrawGizmosSelected()

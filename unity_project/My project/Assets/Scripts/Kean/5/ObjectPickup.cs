@@ -84,21 +84,28 @@ public class ObjectPickup : MonoBehaviour
             
             
         }
-        // 2. INPUT: GOOIEN (Muisklik)
-        if (heldObj != null && Input.GetMouseButtonDown(0))
-        {
-            ThrowObject();
-        }
     }
 
     // LateUpdate zorgt voor soepele beweging zonder trillen
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (heldObj != null)
         {
-            // HARD TELEPORTEREN
-            // We gebruiken GEEN parenting. We dwingen het object gewoon naar de positie.
-            heldObj.transform.position = holdPos.position;
+// Hoe harder je trekt, hoe strakker hij de hand volgt (bijv. 25f)
+        float followSpeed = 25f; 
+
+        // 1. Bereken de afstand tussen de hand en het object
+        Vector3 direction = holdPos.position - heldObj.transform.position;
+
+        // 2. Geef het object snelheid richting de hand in plaats van te teleporteren
+        // Hierdoor stopt hij netjes als hij een muur raakt!
+        heldObjRb.linearVelocity = direction * followSpeed;
+
+        // 3. Zorg dat hij niet raar gaat tollen
+        heldObjRb.angularVelocity = Vector3.zero;
+        
+        // Optioneel: Laat het object wel meedraaien met de hand
+        heldObj.transform.rotation = holdPos.rotation;
         }
     }
 
@@ -114,44 +121,23 @@ public class ObjectPickup : MonoBehaviour
                 heldObjCol = heldObj.GetComponent<Collider>();
 
                 // STAP 1: Physics UIT (Geen zwaartekracht)
-                heldObjRb.isKinematic = true;
-
-                // STAP 2: Collider UIT (SPOOK MODUS)
-                // Dit is de magische fix. Als de collider uit staat, kan hij NERGENS
-                // tegenaan botsen. Hij kan dus ook niet verdwijnen door physics glitches.
-                if (heldObjCol != null) heldObjCol.isTrigger = true;
+                heldObjRb.isKinematic = false;
+                heldObjRb.useGravity = false;
+                heldObjRb.linearDamping = 10f; 
+                heldObjRb.angularDamping = 10f;
             }
     }
 
     void DropObject()
     {
         // STAP 1: Physics weer AAN
-        heldObjRb.isKinematic = false;
-        heldObjRb.linearVelocity = Vector3.zero; // Reset snelheid (Unity 6)
+        heldObjRb.useGravity = true;
+        //heldObjRb.linearVelocity = Vector3.zero;
         // heldObjRb.velocity = Vector3.zero; // Gebruik deze regel als je oude Unity hebt
-
-        // STAP 2: Collider weer AAN
-        if (heldObjCol != null) heldObjCol.isTrigger = false;
+        heldObjRb.linearDamping = 0.05f; 
+        heldObjRb.angularDamping = 0.05f;
 
         // Reset variabelen
-        heldObj = null;
-        heldObjRb = null;
-        heldObjCol = null;
-    }
-
-    void ThrowObject()
-    {
-        // Zelfde als Drop, maar met kracht
-        heldObjRb.isKinematic = false;
-        if (heldObjCol != null) 
-        {
-            heldObjCol.enabled = true;
-            heldObjCol.isTrigger = false;
-        }
-
-        // Gooi in de richting waar de camera heen kijkt
-        heldObjRb.AddForce(playerCamera.forward * throwForce);
-
         heldObj = null;
         heldObjRb = null;
         heldObjCol = null;

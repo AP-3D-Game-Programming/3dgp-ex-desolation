@@ -48,9 +48,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -665251216494223520, guid: 91f05b5294bb815459d221a31c50a2ca, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 91f05b5294bb815459d221a31c50a2ca, type: 3}
       propertyPath: m_Name
-      value: SaltShaker
+      value: salt_shaker
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 91f05b5294bb815459d221a31c50a2ca, type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 91f05b5294bb815459d221a31c50a2ca, type: 3}
       propertyPath: m_TagString

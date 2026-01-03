@@ -17,7 +17,7 @@ public class ChemicalLock : MonoBehaviour
     public AudioClip powderSound;        // Optioneel: geluid voor zout (of leeg laten)
     private List<ChemicalItem> addedIngredients = new List<ChemicalItem>();
     public bool DoorUnlocked = false; 
-    
+    public ParticleSystem successParticles;
 
     public void AddChemical(ChemicalItem item)
     {
@@ -26,8 +26,7 @@ public class ChemicalLock : MonoBehaviour
             addedIngredients.Add(item);
             Destroy(item.gameObject);
             Debug.Log("Ingrediënt toegevoegd: " + item.substanceName);
-
-            // Speel geluid
+            
             if (item.isLiquid)
             {
                 audioSource.PlayOneShot(pourSound);
@@ -39,7 +38,10 @@ public class ChemicalLock : MonoBehaviour
                     audioSource.PlayOneShot(powderSound);
                 }
             }
-
+            if (item.substanceName == "salt" || item.substanceName == "vinegar" || item.substanceName == "lemon")
+            {
+                PlaySuccess();
+            }
             // Check of we alle ingrediënten hebben
             if (CheckSolution(item))
             {
@@ -94,9 +96,14 @@ public class ChemicalLock : MonoBehaviour
                 return false;
             }
         }
-
-
-
     }
-
+    public void PlaySuccess()
+    {
+        if (successParticles != null)
+        {
+            successParticles.Play();
+        }
+        
+        Debug.Log("Effect afgespeeld!");
+    }
 }
