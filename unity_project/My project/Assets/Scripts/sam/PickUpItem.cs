@@ -8,10 +8,23 @@ public class PickUpItem : MonoBehaviour
     public GameObject interactieTekst;
     public KeyCode interactieToets = KeyCode.E;
 
-    [Header("Audio Instellingen")]
+    [Header("Glow Instellingen")]
+    public Renderer objectRenderer; // Sleep hier de Mesh Renderer van de walkie-talkie in
+    [ColorUsage(true, true)] public Color glowKleur;
+    private Color standaardKleur = Color.black; // Geen emission
+
+    [Header("Audio")]
+    public AudioSource spelerStemAudioSource;
     public AudioClip voiceLine;
 
     private bool isDichtbij = false;
+
+    void Start()
+    {
+        // Zorg dat de glow uit staat bij het begin
+        if (objectRenderer != null)
+            objectRenderer.material.SetColor("_EmissionColor", standaardKleur);
+    }
 
     void Update()
     {
@@ -23,31 +36,14 @@ public class PickUpItem : MonoBehaviour
 
     void PakOp()
     {
-        GameObject speler = GameObject.FindGameObjectWithTag("Player");
-
-        if (speler != null)
+        // Audio logica (die hadden we al)
+        if (spelerStemAudioSource != null && voiceLine != null)
         {
-            AudioSource spelerAudio = speler.GetComponent<AudioSource>();
-
-            if (spelerAudio != null && voiceLine != null)
-            {
-                // DE FIX: Check of er al iets speelt
-                if (spelerAudio.isPlaying)
-                {
-                    Debug.Log("Er speelt al een voiceline. Ik wacht even met de rare shit...");
-                    // Optioneel: spelerAudio.Stop(); // Gebruik dit als de nieuwe clip de oude moet afkappen
-                }
-
-                // Als er niks speelt (of als je de clip wilt forceren), spelen we het af
-                if (!spelerAudio.isPlaying)
-                {
-                    spelerAudio.PlayOneShot(voiceLine);
-                }
-            }
+            spelerStemAudioSource.clip = voiceLine;
+            spelerStemAudioSource.Play();
         }
 
-        // De rest van de logica blijft hetzelfde
-        deKey.hasWalkieTalkie = true;
+        if (deKey != null) deKey.hasWalkieTalkie = true;
         if (interactieTekst != null) interactieTekst.SetActive(false);
 
         Destroy(gameObject);
@@ -59,6 +55,14 @@ public class PickUpItem : MonoBehaviour
         {
             isDichtbij = true;
             if (interactieTekst != null) interactieTekst.SetActive(true);
+
+            // ZET GLOW AAN
+            if (objectRenderer != null)
+            {
+                objectRenderer.material.SetColor("_EmissionColor", glowKleur);
+                // We moeten Unity vertellen dat het materiaal nu licht geeft
+                objectRenderer.material.EnableKeyword("_EMISSION");
+            }
         }
     }
 
@@ -68,6 +72,10 @@ public class PickUpItem : MonoBehaviour
         {
             isDichtbij = false;
             if (interactieTekst != null) interactieTekst.SetActive(false);
+
+            // ZET GLOW UIT
+            if (objectRenderer != null)
+                objectRenderer.material.SetColor("_EmissionColor", standaardKleur);
         }
     }
 }

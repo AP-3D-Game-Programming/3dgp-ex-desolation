@@ -9,7 +9,20 @@ public class PickUpKey : MonoBehaviour
     public KeyCode interactieToets = KeyCode.E;
     public bool hasWalkieTalkie = false;
 
+    [Header("Glow")]
+    public Renderer objectRenderer;
+    [ColorUsage(true, true)] public Color glowKleur = Color.yellow;
+    private Color standaardKleur = Color.black; // Geen emission
+
     private bool isDichtbij = false;
+
+
+    void Start()
+    {
+        // Zorg dat de glow uit staat bij het begin
+        if (objectRenderer != null)
+            objectRenderer.material.SetColor("_EmissionColor", standaardKleur);
+    }
 
     void Update()
     {
@@ -35,6 +48,14 @@ public class PickUpKey : MonoBehaviour
         {
             isDichtbij = true;
             interactieTekst.SetActive(true); // Tekst laten zien
+
+            // ZET GLOW AAN
+            if (objectRenderer != null)
+            {
+                objectRenderer.material.SetColor("_EmissionColor", glowKleur);
+                // We moeten Unity vertellen dat het materiaal nu licht geeft
+                objectRenderer.material.EnableKeyword("_EMISSION");
+            }
         }
     }
 
@@ -45,6 +66,10 @@ public class PickUpKey : MonoBehaviour
         {
             isDichtbij = false;
             interactieTekst.SetActive(false); // Tekst weer verbergen
+
+            // ZET GLOW UIT
+            if (objectRenderer != null)
+                objectRenderer.material.SetColor("_EmissionColor", standaardKleur);
         }
     }
 }
