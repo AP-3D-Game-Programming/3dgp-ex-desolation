@@ -4,12 +4,12 @@ using TMPro;
 public class PickUpItem : MonoBehaviour
 {
     [Header("Instellingen")]
-    public PickUpKey deKey; // Je referentie naar het sleutel/deur-script
+    public PickUpKey deKey;
     public GameObject interactieTekst;
     public KeyCode interactieToets = KeyCode.E;
 
     [Header("Audio Instellingen")]
-    public AudioClip voiceLine; // Sleep hier je geluidsbestand (.mp3/.wav) in
+    public AudioClip voiceLine;
 
     private bool isDichtbij = false;
 
@@ -23,35 +23,33 @@ public class PickUpItem : MonoBehaviour
 
     void PakOp()
     {
-        // 1. Zoek de speler op basis van de Tag "Player"
         GameObject speler = GameObject.FindGameObjectWithTag("Player");
 
         if (speler != null)
         {
-            // 2. Haal de AudioSource van de speler op
             AudioSource spelerAudio = speler.GetComponent<AudioSource>();
 
             if (spelerAudio != null && voiceLine != null)
             {
-                // 3. Speel de voiceline af
-                spelerAudio.PlayOneShot(voiceLine);
-                Debug.Log("Voiceline wordt afgespeeld via de speler. Luister je wel?");
+                // DE FIX: Check of er al iets speelt
+                if (spelerAudio.isPlaying)
+                {
+                    Debug.Log("Er speelt al een voiceline. Ik wacht even met de rare shit...");
+                    // Optioneel: spelerAudio.Stop(); // Gebruik dit als de nieuwe clip de oude moet afkappen
+                }
+
+                // Als er niks speelt (of als je de clip wilt forceren), spelen we het af
+                if (!spelerAudio.isPlaying)
+                {
+                    spelerAudio.PlayOneShot(voiceLine);
+                }
             }
-            else if (spelerAudio == null)
-            {
-                Debug.LogWarning("Ik vind de speler wel, maar er zit geen AudioSource op! Doe dat eens even!");
-            }
-        }
-        else
-        {
-            Debug.LogError("Ik kan geen object vinden met de tag 'Player'. Heb je die tag wel ingesteld?");
         }
 
-        // De rest van je logica
+        // De rest van de logica blijft hetzelfde
         deKey.hasWalkieTalkie = true;
         if (interactieTekst != null) interactieTekst.SetActive(false);
 
-        Debug.Log("Walkie-talkie opgepakt. Eindelijk progressie.");
         Destroy(gameObject);
     }
 
