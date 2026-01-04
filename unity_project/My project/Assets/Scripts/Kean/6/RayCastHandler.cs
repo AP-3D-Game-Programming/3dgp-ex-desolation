@@ -15,11 +15,8 @@ public class RayCastHandler : MonoBehaviour
     public GameObject lever;
     private Collider leverCollider;
 
-
-
-    // We gebruiken een List om bij te houden welke deuren al open zijn
     private List<Transform> openedDoors = new List<Transform>();
-    private List<Transform> closedDoors = new List<Transform>();
+    private List<Transform> animatingDoors = new List<Transform>();
 
     void Awake()
     {
@@ -48,10 +45,12 @@ public class RayCastHandler : MonoBehaviour
         {
                 if (hit.collider.CompareTag("Door"))
                 {
-                    ShowUI(true, "Interact (E)");
+                    playerCanvas.enabled = true;
+                    interactText.text = "Interact (E)";
                     if (Input.GetKeyDown(KeyCode.E))
                     {
                     Transform doorTransform = hit.collider.transform;
+                    if (animatingDoors.Contains(doorTransform)) return;
                     if (!openedDoors.Contains(doorTransform))
                     {
                         StartCoroutine(AnimateDoorOpen(doorTransform)); 
@@ -64,37 +63,26 @@ public class RayCastHandler : MonoBehaviour
                 }
                 else if (playerCollider.bounds.Intersects(leverCollider.bounds) && !GrendelActivator.GrendelLosgehaald)
                 {
-                    ShowUI(true, "Pull (E)");
+                    playerCanvas.enabled = true;
+                    interactText.text = "Pull (E)";
                 }
                 else
                 {
-                    ShowUI(false);
+                    playerCanvas.enabled = false;
                 }
             
         }
         else
         {
-            ShowUI(false);
+            playerCanvas.enabled = false;
+        }
 
-        }
-    }
-    // Hulpmethode om geflikker te voorkomen: check eerst of de staat wel moet veranderen
-    void ShowUI(bool state, string text = "")
-    {
-        if (playerCanvas.enabled != state) 
-        {
-            playerCanvas.enabled = state;
-        }
-        if (state) 
-        {
-            interactText.text = text;
-        }
     }
 
     IEnumerator AnimateDoorOpen(Transform doorTransform)
     {
+        animatingDoors.Add(doorTransform);
         openedDoors.Add(doorTransform);
-        
         Quaternion startRot = doorTransform.rotation;
         Quaternion endRot = Quaternion.Euler(0, 90f, 0) * startRot;
         
@@ -107,10 +95,12 @@ public class RayCastHandler : MonoBehaviour
         }
 
         doorTransform.rotation = endRot;
+        animatingDoors.Remove(doorTransform);
     }
 
     IEnumerator AnimateDoorClose(Transform doorTransform)
 {
+    animatingDoors.Add(doorTransform);
     openedDoors.Remove(doorTransform);
     Quaternion startRot = doorTransform.rotation;
     // We draaien -90 graden op de Y-as om de beweging om te keren
@@ -126,5 +116,6 @@ public class RayCastHandler : MonoBehaviour
     }
 
     doorTransform.rotation = endRot;
+    animatingDoors.Remove(doorTransform);
 }
 }

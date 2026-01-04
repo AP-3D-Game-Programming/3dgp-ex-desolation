@@ -9,6 +9,7 @@ public class HandleLeverPull : MonoBehaviour
     public List<GameObject> lamp_lights = new List<GameObject>();
     public AudioSource ShortCircuitAudioSource;
     public AudioClip ShortCircuitSoundClip;
+    public AudioSource GeneratorSoundSource;
     private bool audioPlayed=false;
     public GameObject ElevatorDoor;
     public GameObject liftLight;
@@ -35,10 +36,10 @@ public class HandleLeverPull : MonoBehaviour
         {
             if (!audioPlayed)
             {
+                GeneratorSoundSource.enabled = false;
                 ShortCircuitAudioSource.PlayOneShot(ShortCircuitSoundClip);
                 audioPlayed = true;
             }
-            ShortCircuitAudioSource.PlayOneShot(ShortCircuitSoundClip);
             for (int i = 0; i < lamp_lights.Count; i++)
             {
                 Destroy(lamp_lights[i]);
