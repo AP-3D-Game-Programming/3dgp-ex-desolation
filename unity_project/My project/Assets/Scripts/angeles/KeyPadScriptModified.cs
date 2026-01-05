@@ -2,14 +2,18 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; 
+using TMPro; // Needed for Text Mesh Pro
 using UnityEngine.SceneManagement;
 
 public class KeyPadScriptModified : MonoBehaviour
 {
     [Header("1. UI & Objects")]
-    public GameObject Screen;
-    public GameObject crosshair;
+    public GameObject Screen;   // The screen on the keypad
+    public GameObject crosshair; // The dot in the center
+    
+    [Header("Interaction Text")]
+    [Tooltip("Drag your Text (TMP) object here. Can be 3D text or UI text.")]
+    public TMP_Text promptText; // <--- NEW: Drag your text object here
 
     [Header("2. Settings")]
     public string nextSceneName = "Level2"; 
@@ -23,57 +27,89 @@ public class KeyPadScriptModified : MonoBehaviour
     void Start()
     {
         currentInput = new int[CodeLength];
+        
+        // Hide things at the start so they don't block view
         if (crosshair != null) crosshair.SetActive(false);
+        if (promptText != null) promptText.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        // Screen Logic
+        // --- KEYPAD SCREEN LOGIC ---
         if (Screen != null)
         {
             string textToShow = "";
             for(int i=0; i < pressesCount; i++) textToShow += currentInput[i].ToString();
+            
             var tmp = Screen.GetComponent<TextMeshPro>();
             if (tmp != null) tmp.text = isCodeCorrect ? "OPEN" : textToShow;
         }
 
-        // --- HOVER LOGIC ---
-        // 1. Create a "LayerMask" to ignore the Player (Layer 2 is typically Ignore Raycast)
-        // Note: For now we just shoot normal rays.
+        // --- RAYCAST LOGIC (Eyes) ---
         Ray ray = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0f));
         RaycastHit hit;
-        bool isHovering = false;
+        
+        bool foundSomething = false;
 
+        // Shoot a ray 5 meters forward
         if (Physics.Raycast(ray, out hit, 5))
         {
-            // Check for Button
-            if (hit.transform.GetComponent<Number>() != null)
+            // 1. IS IT A KEYPAD BUTTON?
+            Number hitNumber = hit.transform.GetComponent<Number>();
+            if (hitNumber != null)
             {
-                isHovering = true;
-                // DEBUG: Uncomment the line below if you want to see what button triggers it
-                // Debug.Log("Crosshair ON because of Number: " + hit.transform.name);
+                foundSomething = true;
+                ShowPrompt("[E] Press " + hitNumber.number); // Changes text to "[E] Press 1" etc
             }
-            // Check for Door
+            
+            // 2. IS IT THE EXIT DOOR?
             else if (hit.transform.CompareTag("ExitDoor"))
             {
-                isHovering = true;
-                // THIS IS THE SNITCH LINE:
-                Debug.Log("Crosshair ON because I see 'ExitDoor' tag on: " + hit.transform.name);
+                foundSomething = true;
+                
+                if (isCodeCorrect)
+                {
+                    ShowPrompt("[E] Open");
+                }
+                else
+                {
+                    ShowPrompt("Locked");
+                }
             }
         }
 
-        // Set Crosshair
-        if (crosshair != null) crosshair.SetActive(isHovering);
+        // Hide text if looking at nothing
+        if (!foundSomething)
+        {
+            if (promptText != null) promptText.gameObject.SetActive(false);
+            if (crosshair != null) crosshair.SetActive(false);
+        }
+        else
+        {
+            // Show crosshair if we found something
+            if (crosshair != null) crosshair.SetActive(true);
+        }
 
-        // Click Logic
-        if (isHovering && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)))
+        // --- INPUT LOGIC ---
+        // Only works if we are actually looking at something valid
+        if (foundSomething && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)))
         {
             HandleInteraction(hit);
         }
     }
 
+    void ShowPrompt(string message)
+    {
+        if (promptText != null)
+        {
+            promptText.text = message;
+            promptText.gameObject.SetActive(true);
+        }
+    }
+
     void HandleInteraction(RaycastHit hit)
     {
+        // Handle Button Press
         Number hitNumber = hit.transform.GetComponent<Number>();
         if (hitNumber != null)
         {
@@ -86,8 +122,10 @@ public class KeyPadScriptModified : MonoBehaviour
             return; 
         }
 
+        // Handle Door Open
         if (hit.transform.CompareTag("ExitDoor") && isCodeCorrect)
         {
+            Debug.Log("Loading Next Level...");
             SceneManager.LoadScene(nextSceneName);
         }
     }
@@ -100,7 +138,11 @@ public class KeyPadScriptModified : MonoBehaviour
             for(int i=0; i < pressesCount; i++) result += currentInput[i].ToString();
 
             if (result == CorrectCode) isCodeCorrect = true;
-            else { pressesCount = 0; Array.Clear(currentInput, 0, CodeLength); }
+            else { 
+                // Wrong code: Reset
+                pressesCount = 0; 
+                Array.Clear(currentInput, 0, CodeLength); 
+            }
         }
     }
 }

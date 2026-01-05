@@ -1,78 +1,77 @@
 using UnityEngine;
+using System.Collections;
 
-public class LockedDoor : MonoBehaviour
+public class LockedDoorFinal : MonoBehaviour
 {
-    [Header("Settings")]
-    public AudioSource soundSource;
+    [Header("Assign These")]
+    public AudioSource audioSource;
     public AudioClip lockedSound;
-    public float shakeAmount = 0.05f;
-    public float shakeDuration = 0.2f;
+    [Tooltip("Drag your '[E] Locked' text object here")]
+    public GameObject promptUI; // <--- Drag your text here
 
-    [Header("Interaction")]
-    public float interactDistance = 3.0f; // How close you must be to shake it
-    public Transform player; // Drag your Player object here in the Inspector
+    [Header("Settings")]
+    public float shakeTime = 0.2f;
+    public float shakeStrength = 0.05f;
 
-    private Vector3 originalPos;
+    private bool playerIsClose = false;
     private bool isShaking = false;
+    private Vector3 startPos;
 
     void Start()
     {
-        originalPos = transform.localPosition;
+        startPos = transform.localPosition;
+        
+        // Ensure text is hidden when game starts
+        if (promptUI != null) promptUI.SetActive(false);
+    }
 
-        // If you forgot to assign the player in the Inspector, try to find them automatically
-        if (player == null)
+    // When you walk INTO the invisible box
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
         {
-            GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
-            if (playerObj != null)
-            {
-                player = playerObj.transform;
-            }
+            playerIsClose = true;
+            if (promptUI != null) promptUI.SetActive(true); // Show Text
+        }
+    }
+
+    // When you walk OUT OF the invisible box
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            playerIsClose = false;
+            if (promptUI != null) promptUI.SetActive(false); // Hide Text
         }
     }
 
     void Update()
     {
-        // 1. Check if E is pressed
-        if (Input.GetKeyDown(KeyCode.E))
+        if (playerIsClose && Input.GetKeyDown(KeyCode.E))
         {
-            // 2. Check if player exists
-            if (player != null)
-            {
-                // 3. Check distance: Is the player close enough?
-                float dist = Vector3.Distance(transform.position, player.position);
-                
-                if (dist <= interactDistance)
-                {
-                    TryOpen();
-                }
-            }
+            if (!isShaking) StartCoroutine(ShakeRoutine());
         }
     }
 
-    public void TryOpen()
-    {
-        if (!isShaking)
-        {
-            if(soundSource && lockedSound) soundSource.PlayOneShot(lockedSound);
-            StartCoroutine(ShakeDoor());
-        }
-    }
-
-    System.Collections.IEnumerator ShakeDoor()
+    IEnumerator ShakeRoutine()
     {
         isShaking = true;
-        float elapsed = 0.0f;
+        
+        if (audioSource && lockedSound) audioSource.PlayOneShot(lockedSound);
 
-        while (elapsed < shakeDuration)
+        float elapsed = 0f;
+        while (elapsed < shakeTime)
         {
-            float x = Random.Range(-1f, 1f) * shakeAmount;
-            transform.localPosition = new Vector3(originalPos.x + x, originalPos.y, originalPos.z);
+            float x = Random.Range(-1f, 1f) * shakeStrength;
+            float y = Random.Range(-1f, 1f) * shakeStrength;
+
+            transform.localPosition = startPos + new Vector3(x, y, 0);
 
             elapsed += Time.deltaTime;
             yield return null;
         }
 
-        transform.localPosition = originalPos;
+        transform.localPosition = startPos;
         isShaking = false;
     }
 }
