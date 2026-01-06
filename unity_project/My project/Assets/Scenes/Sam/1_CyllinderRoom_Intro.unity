@@ -2619,6 +2619,11 @@ MonoBehaviour:
   glowKleur: {r: 0.25, g: 0.028700411, b: 0.0039266944, a: 1}
   spelerStemAudioSource: {fileID: 395600009}
   voiceLine: {fileID: 8300000, guid: 1866927aeff118c4ba53ace7a230899c, type: 3}
+  subtitleText: "\"Thank God. Name\u2019s Piotr. Subject 41. I\u2019m trapped deep
+    in Containment. My legs are... gone. They locked the doors and left us down here
+    to rot.\" (A pause.) \"Listen, I need you. Look to your left\u2014right on the
+    ground where you woke up. There\u2019s a key. Grab it. Come find me.\""
+  subtitleUI: {fileID: 408257831}
 --- !u!23 &724311046 stripped
 MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 2bb01c80476604adc82b2f849abd5f22, type: 3}

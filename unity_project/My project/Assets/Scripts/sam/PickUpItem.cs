@@ -1,5 +1,6 @@
 using UnityEngine;
-using TMPro;
+using TMPro; 
+using System.Collections; 
 
 public class PickUpItem : MonoBehaviour
 {
@@ -9,19 +10,22 @@ public class PickUpItem : MonoBehaviour
     public KeyCode interactieToets = KeyCode.E;
 
     [Header("Glow Instellingen")]
-    public Renderer objectRenderer; // Sleep hier de Mesh Renderer van de walkie-talkie in
+    public Renderer objectRenderer; 
     [ColorUsage(true, true)] public Color glowKleur;
-    private Color standaardKleur = Color.black; // Geen emission
+    private Color standaardKleur = Color.black; 
 
     [Header("Audio")]
     public AudioSource spelerStemAudioSource;
     public AudioClip voiceLine;
 
+    [Header("Subtitle Instellingen")]
+    public string subtitleText;         
+    public TextMeshProUGUI subtitleUI;  
+
     private bool isDichtbij = false;
 
     void Start()
     {
-        // Zorg dat de glow uit staat bij het begin
         if (objectRenderer != null)
             objectRenderer.material.SetColor("_EmissionColor", standaardKleur);
     }
@@ -36,16 +40,45 @@ public class PickUpItem : MonoBehaviour
 
     void PakOp()
     {
-        // Audio logica (die hadden we al)
+        float audioDuur = 0f;
+
+        // Audio logica
         if (spelerStemAudioSource != null && voiceLine != null)
         {
             spelerStemAudioSource.clip = voiceLine;
             spelerStemAudioSource.Play();
+            audioDuur = voiceLine.length;
         }
 
         if (deKey != null) deKey.hasWalkieTalkie = true;
         if (interactieTekst != null) interactieTekst.SetActive(false);
 
+        // Verberg object en zet collider uit (zodat het lijkt alsof het weg is)
+        if (objectRenderer != null) objectRenderer.enabled = false;
+        if (GetComponent<Collider>() != null) GetComponent<Collider>().enabled = false;
+
+        // Start de timer om tekst te tonen EN daarna het object te vernietigen
+        StartCoroutine(AfhandelenEnVernietigen(audioDuur));
+    }
+
+    IEnumerator AfhandelenEnVernietigen(float delay)
+    {
+        // Toon tekst
+        if (subtitleUI != null)
+        {
+            subtitleUI.text = subtitleText;
+        }
+
+        // Wacht tot audio klaar is
+        yield return new WaitForSeconds(delay);
+
+        // Wis tekst
+        if (subtitleUI != null && subtitleUI.text == subtitleText)
+        {
+            subtitleUI.text = "";
+        }
+
+        // NU pas het object vernietigen, nadat de tekst weg is
         Destroy(gameObject);
     }
 
@@ -56,11 +89,9 @@ public class PickUpItem : MonoBehaviour
             isDichtbij = true;
             if (interactieTekst != null) interactieTekst.SetActive(true);
 
-            // ZET GLOW AAN
             if (objectRenderer != null)
             {
                 objectRenderer.material.SetColor("_EmissionColor", glowKleur);
-                // We moeten Unity vertellen dat het materiaal nu licht geeft
                 objectRenderer.material.EnableKeyword("_EMISSION");
             }
         }
@@ -73,7 +104,6 @@ public class PickUpItem : MonoBehaviour
             isDichtbij = false;
             if (interactieTekst != null) interactieTekst.SetActive(false);
 
-            // ZET GLOW UIT
             if (objectRenderer != null)
                 objectRenderer.material.SetColor("_EmissionColor", standaardKleur);
         }
