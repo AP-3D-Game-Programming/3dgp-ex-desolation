@@ -5069,7 +5069,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Created by:\nAngeles, Kean, Sam, Wimme\n\nSpecial thanks to:\n\nPhilip
     Osier \nfor his voice acting.\n\nAlek Van Ginderen\nfor providing the music.\n\nPress
-    [E] to go back to the main menu."
+    [A] to go back to the main menu."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

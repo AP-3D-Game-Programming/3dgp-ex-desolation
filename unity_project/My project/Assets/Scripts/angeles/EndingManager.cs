@@ -33,8 +33,8 @@ public class EndingManager : MonoBehaviour
 
     void Update()
     {
-        // Allow ESC to quit to menu
-        if (isEnding && Input.GetKeyDown(KeyCode.E))
+        // Allow A to quit to menu
+        if (isEnding && Input.GetKeyDown(KeyCode.A))
         {
             // IMPORTANT: Unlock mouse so you can click menu buttons
             Cursor.lockState = CursorLockMode.None;
