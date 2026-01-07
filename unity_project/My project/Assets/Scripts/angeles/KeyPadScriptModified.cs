@@ -59,7 +59,7 @@ public class KeyPadScriptModified : MonoBehaviour
             if (hitNumber != null)
             {
                 foundSomething = true;
-                ShowPrompt("[E] Press " + hitNumber.number); // Changes text to "[E] Press 1" etc
+                ShowPrompt("[Click] " + hitNumber.number); // Changes text to "CLICK 1" etc
             }
             
             // 2. IS IT THE EXIT DOOR?
@@ -92,7 +92,7 @@ public class KeyPadScriptModified : MonoBehaviour
 
         // --- INPUT LOGIC ---
         // Only works if we are actually looking at something valid
-        if (foundSomething && (Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.E)))
+        if (foundSomething && Input.GetMouseButtonDown(0))
         {
             HandleInteraction(hit);
         }

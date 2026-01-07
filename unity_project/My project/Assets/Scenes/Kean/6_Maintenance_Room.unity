@@ -17256,6 +17256,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.607
       objectReference: {fileID: 0}
+    - target: {fileID: 7753753241482966462, guid: aff03539f9f26274a8f595b7feffd12b, type: 3}
+      propertyPath: Sensitivity
+      value: 67
+      objectReference: {fileID: 0}
     - target: {fileID: 7973537164096529505, guid: aff03539f9f26274a8f595b7feffd12b, type: 3}
       propertyPath: m_Volume
       value: 0.6
@@ -27127,7 +27131,7 @@ AudioSource:
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.6
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -27171,7 +27175,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0

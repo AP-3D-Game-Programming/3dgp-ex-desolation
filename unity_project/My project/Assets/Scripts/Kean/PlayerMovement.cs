@@ -135,10 +135,14 @@ public class First_Person_Movement : MonoBehaviour
 
     private void MoveCamera()
     {
-        xRotation -= PlayerMouseInput.y * Sensitivity;
+        // GEBRUIK 'Raw' VOOR DIRECTERE INPUT EN 'Time.deltaTime' VOOR SOEPELHEID
+        float mouseX = Input.GetAxisRaw("Mouse X") * Sensitivity * Time.deltaTime;
+        float mouseY = Input.GetAxisRaw("Mouse Y") * Sensitivity * Time.deltaTime;
+
+        xRotation -= mouseY;
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
-        transform.Rotate(0f, PlayerMouseInput.x * Sensitivity, 0f);
+        transform.Rotate(0f, mouseX, 0f);
         PlayerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
     }
 

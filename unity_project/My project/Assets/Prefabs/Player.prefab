@@ -522,7 +522,7 @@ MonoBehaviour:
   Speed: 2
   SprintSpeedIncrease: 1
   JumpForce: 5
-  Sensitivity: 3
+  Sensitivity: 67
   Gravity: -9.81
   CanSneak: 1
   IsSneaking: 0

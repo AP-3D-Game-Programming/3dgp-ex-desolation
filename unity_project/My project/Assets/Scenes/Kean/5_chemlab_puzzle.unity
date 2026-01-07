@@ -12466,6 +12466,10 @@ PrefabInstance:
       propertyPath: Speed
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7753753241482966462, guid: aff03539f9f26274a8f595b7feffd12b, type: 3}
+      propertyPath: Sensitivity
+      value: 67
+      objectReference: {fileID: 0}
     - target: {fileID: 8552268329758035496, guid: aff03539f9f26274a8f595b7feffd12b, type: 3}
       propertyPath: m_Layer
       value: 8
