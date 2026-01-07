@@ -2,18 +2,18 @@ using System;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; // Needed for Text Mesh Pro
+using TMPro; 
 using UnityEngine.SceneManagement;
 
 public class KeyPadScriptModified : MonoBehaviour
 {
     [Header("1. UI & Objects")]
-    public GameObject Screen;   // The screen on the keypad
-    public GameObject crosshair; // The dot in the center
+    public GameObject Screen;   
+    public GameObject crosshair; 
     
     [Header("Interaction Text")]
-    [Tooltip("Drag your Text (TMP) object here. Can be 3D text or UI text.")]
-    public TMP_Text promptText; // <--- NEW: Drag your text object here
+    [Tooltip("Drag your Text (TMP) object here.")]
+    public TMP_Text promptText; 
 
     [Header("2. Settings")]
     public string nextSceneName = "Level2"; 
@@ -28,7 +28,6 @@ public class KeyPadScriptModified : MonoBehaviour
     {
         currentInput = new int[CodeLength];
         
-        // Hide things at the start so they don't block view
         if (crosshair != null) crosshair.SetActive(false);
         if (promptText != null) promptText.gameObject.SetActive(false);
     }
@@ -54,15 +53,21 @@ public class KeyPadScriptModified : MonoBehaviour
         // Shoot a ray 5 meters forward
         if (Physics.Raycast(ray, out hit, 5))
         {
-            // 1. IS IT A KEYPAD BUTTON?
+            // 1. IS IT A KEYPAD BUTTON? (Requires Left Click)
             Number hitNumber = hit.transform.GetComponent<Number>();
             if (hitNumber != null)
             {
                 foundSomething = true;
-                ShowPrompt("[Click] " + hitNumber.number); // Changes text to "CLICK 1" etc
+                ShowPrompt("[Click] " + hitNumber.number); 
+
+                // INPUT CHECK: LEFT CLICK
+                if (Input.GetMouseButtonDown(0))
+                {
+                    HandleInteraction(hit);
+                }
             }
             
-            // 2. IS IT THE EXIT DOOR?
+            // 2. IS IT THE EXIT DOOR? (Requires E)
             else if (hit.transform.CompareTag("ExitDoor"))
             {
                 foundSomething = true;
@@ -70,6 +75,12 @@ public class KeyPadScriptModified : MonoBehaviour
                 if (isCodeCorrect)
                 {
                     ShowPrompt("[E] Open");
+                    
+                    // INPUT CHECK: E KEY
+                    if (Input.GetKeyDown(KeyCode.E))
+                    {
+                        HandleInteraction(hit);
+                    }
                 }
                 else
                 {
@@ -78,7 +89,8 @@ public class KeyPadScriptModified : MonoBehaviour
             }
         }
 
-        // Hide text if looking at nothing
+        // --- VISUALS LOGIC ---
+        // Hide text and crosshair if looking at nothing
         if (!foundSomething)
         {
             if (promptText != null) promptText.gameObject.SetActive(false);
@@ -90,12 +102,8 @@ public class KeyPadScriptModified : MonoBehaviour
             if (crosshair != null) crosshair.SetActive(true);
         }
 
-        // --- INPUT LOGIC ---
-        // Only works if we are actually looking at something valid
-        if (foundSomething && Input.GetMouseButtonDown(0))
-        {
-            HandleInteraction(hit);
-        }
+        // (Note: The generic Input block was removed from here and moved 
+        // specifically into the button/door checks above).
     }
 
     void ShowPrompt(string message)

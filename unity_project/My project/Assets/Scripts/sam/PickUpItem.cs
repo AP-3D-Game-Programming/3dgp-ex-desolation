@@ -23,6 +23,7 @@ public class PickUpItem : MonoBehaviour
     public TextMeshProUGUI subtitleUI;  
 
     private bool isDichtbij = false;
+    private bool hasPickedUp = false; // <--- NEW: Tracks if we already pressed E
 
     void Start()
     {
@@ -32,7 +33,8 @@ public class PickUpItem : MonoBehaviour
 
     void Update()
     {
-        if (isDichtbij && Input.GetKeyDown(interactieToets))
+        // Check if we are close, pressed E, AND haven't picked it up yet
+        if (isDichtbij && Input.GetKeyDown(interactieToets) && !hasPickedUp) 
         {
             PakOp();
         }
@@ -40,6 +42,8 @@ public class PickUpItem : MonoBehaviour
 
     void PakOp()
     {
+        hasPickedUp = true; // <--- NEW: Immediately lock it so it can't run again
+
         float audioDuur = 0f;
 
         // Audio logica
@@ -84,7 +88,8 @@ public class PickUpItem : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        // Only allow interaction if we haven't picked it up yet
+        if (other.CompareTag("Player") && !hasPickedUp)
         {
             isDichtbij = true;
             if (interactieTekst != null) interactieTekst.SetActive(true);
